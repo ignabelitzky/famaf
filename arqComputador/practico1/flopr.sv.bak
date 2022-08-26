@@ -1,0 +1,7 @@
+// Implementacion de un Flip-Flop D con reset asincrono
+
+module flopr(input logic clk, reset, d[N-1:0],
+				 output q[N-1:0]);
+	// Falta implementacion
+					
+endmodule
