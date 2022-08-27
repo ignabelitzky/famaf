@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Aug 27 12:13:54 2022
+Analysis & Synthesis Status : Successful - Sat Aug 27 17:14:45 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : SingleCycleProcessor
-Top-level Entity Name : alu
+Top-level Entity Name : imem
 Family : Cyclone IV E
-Total logic elements : 350
-    Total combinational functions : 350
+Total logic elements : 107
+    Total combinational functions : 107
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 197
+Total pins : 38
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
