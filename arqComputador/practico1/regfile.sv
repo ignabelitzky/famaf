@@ -17,8 +17,10 @@ module regfile(input logic clk,
 	end
 
 	always @(posedge clk) begin
-		if (we3 && wa3 !== 5'b11111)	// 5'b11111 = 31
-			registers[wa3] <= wd3;
+		if (we3) begin
+			if (wa3 !== 5'b11111) // 5'b11111 = 31
+				registers[wa3] <= wd3;
+		end
 	end
 	
 	always_comb begin

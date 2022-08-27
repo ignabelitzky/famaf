@@ -1,0 +1,15 @@
+module maindec (input logic [10:0] Op,
+					 output logic Reg2Loc,
+					 output logic ALUSrc,
+					 output logic memtoReg,
+					 output logic RegWrite,
+					 output logic MemRead,
+					 output logic MemWrite,
+					 output logic Branch,
+					 output logic [1:0] ALUOp);
+
+	always_comb begin
+		case(Op)
+			
+	end
+endmodule
