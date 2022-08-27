@@ -15,3 +15,11 @@ endmodule
 
 // <= is nonblocking assignment: occurs simultaneously with others (for sequential logic)
 // = is blocking assignment: occurs in order it appears in file (for combinational logic)
+
+// Quartus test bench configuration
+// Assignments > Settings > Simulation > Compile test bench
+// Click on Test Benches... > New... >...
+// Addd testbench file
+
+// Then Analysis & Synthesis
+// Simulation: Tools > Run Simulation Tool > RTL Simulation
