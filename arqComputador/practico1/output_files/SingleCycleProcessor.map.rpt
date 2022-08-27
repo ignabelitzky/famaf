@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycleProcessor
-Sat Aug 27 17:14:45 2022
+Sat Aug 27 19:35:27 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,10 +14,9 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |imem
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 27 17:14:45 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sat Aug 27 19:35:27 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessor                        ;
-; Top-level Entity Name              ; imem                                        ;
+; Top-level Entity Name              ; regfile                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 107                                         ;
-;     Total combinational functions  ; 107                                         ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 38                                          ;
+; Total logic elements               ; 4,785                                       ;
+;     Total combinational functions  ; 2,812                                       ;
+;     Dedicated logic registers      ; 2,048                                       ;
+; Total registers                    ; 2048                                        ;
+; Total pins                         ; 209                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value        ;
 +------------------------------------------------------------------+--------------------+----------------------+
 ; Device                                                           ; EP4CE22F17C6       ;                      ;
-; Top-level entity name                                            ; imem               ; SingleCycleProcessor ;
+; Top-level entity name                                            ; regfile            ; SingleCycleProcessor ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V            ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                      ;
 ; Use smart compilation                                            ; Off                ; Off                  ;
@@ -157,52 +156,59 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
-; imem.sv                          ; yes             ; User SystemVerilog HDL File  ; /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; regfile.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                 ;
-+---------------------------------------------+---------------+
-; Resource                                    ; Usage         ;
-+---------------------------------------------+---------------+
-; Estimated Total logic elements              ; 107           ;
-;                                             ;               ;
-; Total combinational functions               ; 107           ;
-; Logic element usage by number of LUT inputs ;               ;
-;     -- 4 input functions                    ; 98            ;
-;     -- 3 input functions                    ; 9             ;
-;     -- <=2 input functions                  ; 0             ;
-;                                             ;               ;
-; Logic elements by mode                      ;               ;
-;     -- normal mode                          ; 107           ;
-;     -- arithmetic mode                      ; 0             ;
-;                                             ;               ;
-; Total registers                             ; 0             ;
-;     -- Dedicated logic registers            ; 0             ;
-;     -- I/O registers                        ; 0             ;
-;                                             ;               ;
-; I/O pins                                    ; 38            ;
-;                                             ;               ;
-; Embedded Multiplier 9-bit elements          ; 0             ;
-;                                             ;               ;
-; Maximum fan-out node                        ; addr[2]~input ;
-; Maximum fan-out                             ; 59            ;
-; Total fan-out                               ; 489           ;
-; Average fan-out                             ; 2.67          ;
-+---------------------------------------------+---------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 4,785     ;
+;                                             ;           ;
+; Total combinational functions               ; 2812      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 2593      ;
+;     -- 3 input functions                    ; 144       ;
+;     -- <=2 input functions                  ; 75        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 2812      ;
+;     -- arithmetic mode                      ; 0         ;
+;                                             ;           ;
+; Total registers                             ; 2048      ;
+;     -- Dedicated logic registers            ; 2048      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 209       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 2048      ;
+; Total fan-out                               ; 17360     ;
+; Average fan-out                             ; 3.29      ;
++---------------------------------------------+-----------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +216,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |imem                      ; 107 (107)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 38   ; 0            ; |imem               ; imem        ; work         ;
+; |regfile                   ; 2812 (2812)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 209  ; 0            ; |regfile            ; regfile     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -220,24 +226,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 2048  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 2048  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |imem ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; N              ; 32    ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -245,14 +241,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 38                          ;
-; cycloneiii_lcell_comb ; 107                         ;
-;     normal            ; 107                         ;
-;         3 data inputs ; 9                           ;
-;         4 data inputs ; 98                          ;
+; boundary_port         ; 209                         ;
+; cycloneiii_ff         ; 2048                        ;
+;     ENA               ; 2048                        ;
+; cycloneiii_lcell_comb ; 2812                        ;
+;     normal            ; 2812                        ;
+;         1 data inputs ; 75                          ;
+;         3 data inputs ; 144                         ;
+;         4 data inputs ; 2593                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.70                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 4.22                        ;
 +-----------------------+-----------------------------+
 
 
@@ -261,7 +260,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -271,7 +270,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Aug 27 17:14:40 2022
+    Info: Processing started: Sat Aug 27 19:35:21 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycleProcessor -c SingleCycleProcessor
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file flopr.sv
@@ -284,23 +283,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file imem.sv
     Info (12023): Found entity 1: imem File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file flopr_tb.sv
     Info (12023): Found entity 1: flopr_tb File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv Line: 3
-Info (12127): Elaborating entity "imem" for the top level hierarchy
-Warning (10030): Net "ROM.data_a" at imem.sv(20) has no driver or initial value, using a default initial value '0' File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv Line: 20
-Warning (10030): Net "ROM.waddr_a" at imem.sv(20) has no driver or initial value, using a default initial value '0' File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv Line: 20
-Warning (10030): Net "ROM.we_a" at imem.sv(20) has no driver or initial value, using a default initial value '0' File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv Line: 1
+Info (12127): Elaborating entity "regfile" for the top level hierarchy
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "ROM" is uninferred due to asynchronous read logic File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv Line: 20
+    Info (276007): RAM logic "registers" is uninferred due to asynchronous read logic File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 145 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 107 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 627 megabytes
-    Info: Processing ended: Sat Aug 27 17:14:45 2022
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:16
+Info (21057): Implemented 4994 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 81 input pins
+    Info (21059): Implemented 128 output pins
+    Info (21061): Implemented 4785 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 650 megabytes
+    Info: Processing ended: Sat Aug 27 19:35:27 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:17
 
 
