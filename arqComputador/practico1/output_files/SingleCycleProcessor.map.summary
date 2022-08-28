@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Aug 27 20:04:58 2022
+Analysis & Synthesis Status : Successful - Sun Aug 28 13:46:14 2022
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : SingleCycleProcessor
-Top-level Entity Name : maindec
+Top-level Entity Name : adder
 Family : Cyclone IV E
-Total logic elements : 12
-    Total combinational functions : 12
+Total logic elements : 64
+    Total combinational functions : 64
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 20
+Total pins : 192
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
