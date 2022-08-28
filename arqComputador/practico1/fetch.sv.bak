@@ -1,0 +1,10 @@
+// fetch module
+
+module fetch #(parameter N = 64)
+					(input logic PCSrc_F,
+					input logic clk,
+					input logic reset,
+					input logic [N-1:0] PCBranch_F,
+					output logic [N-1:0] imem_addr_F);
+	
+	mux2 #(N) muxDevice(

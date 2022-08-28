@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycleProcessor
-Sun Aug 28 13:46:14 2022
+Sun Aug 28 16:52:16 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -14,10 +14,9 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |adder
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +43,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Aug 28 13:46:14 2022       ;
+; Analysis & Synthesis Status        ; Successful - Sun Aug 28 16:52:16 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessor                        ;
-; Top-level Entity Name              ; adder                                       ;
+; Top-level Entity Name              ; signext                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 64                                          ;
-;     Total combinational functions  ; 64                                          ;
+; Total logic elements               ; 26                                          ;
+;     Total combinational functions  ; 26                                          ;
 ;     Dedicated logic registers      ; 0                                           ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 192                                         ;
+; Total pins                         ; 96                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value        ;
 +------------------------------------------------------------------+--------------------+----------------------+
 ; Device                                                           ; EP4CE22F17C6       ;                      ;
-; Top-level entity name                                            ; adder              ; SingleCycleProcessor ;
+; Top-level entity name                                            ; signext            ; SingleCycleProcessor ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V            ;
 ; Maximum processors allowed for parallel compilation              ; All                ;                      ;
 ; Use smart compilation                                            ; Off                ; Off                  ;
@@ -164,45 +163,45 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
-; adder.sv                         ; yes             ; User SystemVerilog HDL File  ; /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
+; signext.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 64     ;
-;                                             ;        ;
-; Total combinational functions               ; 64     ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 0      ;
-;     -- 3 input functions                    ; 63     ;
-;     -- <=2 input functions                  ; 1      ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 1      ;
-;     -- arithmetic mode                      ; 63     ;
-;                                             ;        ;
-; Total registers                             ; 0      ;
-;     -- Dedicated logic registers            ; 0      ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 192    ;
-;                                             ;        ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-;                                             ;        ;
-; Maximum fan-out node                        ; Add0~0 ;
-; Maximum fan-out                             ; 2      ;
-; Total fan-out                               ; 447    ;
-; Average fan-out                             ; 1.00   ;
-+---------------------------------------------+--------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 26           ;
+;                                             ;              ;
+; Total combinational functions               ; 26           ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 21           ;
+;     -- 3 input functions                    ; 3            ;
+;     -- <=2 input functions                  ; 2            ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 26           ;
+;     -- arithmetic mode                      ; 0            ;
+;                                             ;              ;
+; Total registers                             ; 0            ;
+;     -- Dedicated logic registers            ; 0            ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 96           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; Selector43~0 ;
+; Maximum fan-out                             ; 44           ;
+; Total fan-out                               ; 257          ;
+; Average fan-out                             ; 1.18         ;
++---------------------------------------------+--------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,7 +209,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |adder                     ; 64 (64)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 192  ; 0            ; |adder              ; adder       ; work         ;
+; |signext                   ; 26 (26)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |signext            ; signext     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -230,30 +229,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |adder ;
-+----------------+-------+----------------------------------------------+
-; Parameter Name ; Value ; Type                                         ;
-+----------------+-------+----------------------------------------------+
-; N              ; 64    ; Signed Integer                               ;
-+----------------+-------+----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 192                         ;
-; cycloneiii_lcell_comb ; 64                          ;
-;     arith             ; 63                          ;
-;         3 data inputs ; 63                          ;
-;     normal            ; 1                           ;
-;         2 data inputs ; 1                           ;
+; boundary_port         ; 96                          ;
+; cycloneiii_lcell_comb ; 26                          ;
+;     normal            ; 26                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 21                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.30                        ;
-; Average LUT depth     ; 4.93                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.34                        ;
 +-----------------------+-----------------------------+
 
 
@@ -272,7 +261,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun Aug 28 13:46:09 2022
+    Info: Processing started: Sun Aug 28 16:52:10 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycleProcessor -c SingleCycleProcessor
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file flopr.sv
@@ -295,17 +284,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
     Info (12023): Found entity 1: mux2 File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/mux2.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file adder.sv
     Info (12023): Found entity 1: adder File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv Line: 3
-Info (12127): Elaborating entity "adder" for the top level hierarchy
+Info (12021): Found 0 design units, including 0 entities, in source file fetch.sv
+Info (12021): Found 1 design units, including 1 entities, in source file signext_tb.sv
+    Info (12023): Found entity 1: signext_tb File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext_tb.sv Line: 3
+Info (12127): Elaborating entity "signext" for the top level hierarchy
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 128 input pins
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "a[0]" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv Line: 1
+    Warning (15610): No output dependent on input pin "a[1]" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv Line: 1
+    Warning (15610): No output dependent on input pin "a[2]" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv Line: 1
+    Warning (15610): No output dependent on input pin "a[3]" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv Line: 1
+    Warning (15610): No output dependent on input pin "a[4]" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv Line: 1
+Info (21057): Implemented 122 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 32 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 64 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 570 megabytes
-    Info: Processing ended: Sun Aug 28 13:46:14 2022
-    Info: Elapsed time: 00:00:05
+    Info (21061): Implemented 26 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 627 megabytes
+    Info: Processing ended: Sun Aug 28 16:52:16 2022
+    Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:16
 
 

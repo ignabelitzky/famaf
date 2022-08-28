@@ -9,47 +9,40 @@
 # Copying /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:14:09 on Aug 27,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv 
-# -- Compiling module alu
+# Start time: 16:52:44 on Aug 28,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext.sv 
+# -- Compiling module signext
 # 
 # Top level modules:
-# 	alu
-# End time: 12:14:09 on Aug 27,2022, Elapsed time: 0:00:00
+# 	signext
+# End time: 16:52:44 on Aug 28,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:14:09 on Aug 27,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv 
-# -- Compiling module flopr_tb
+# Start time: 16:52:44 on Aug 28,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/signext_tb.sv 
+# -- Compiling module signext_tb
 # 
 # Top level modules:
-# 	flopr_tb
-# End time: 12:14:09 on Aug 27,2022, Elapsed time: 0:00:00
+# 	signext_tb
+# End time: 16:52:44 on Aug 28,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  flopr_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" flopr_tb 
-# Start time: 12:14:09 on Aug 27,2022
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  signext_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" signext_tb 
+# Start time: 16:52:44 on Aug 28,2022
 # Loading sv_std.std
-# Loading work.flopr_tb
-# ** Error: (vsim-3033) Instantiation of 'flopr' failed. The design unit was not found.
-#    Time: 0 ps  Iteration: 0  Instance: /flopr_tb File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv Line: 12
-#         Searched libraries:
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/altera
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/220model
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/sgate
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/altera_mf
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/altera_lnsim
-#             /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/altera/verilog/cycloneive
-#             /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/simulation/modelsim/rtl_work
-#             /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/simulation/modelsim/rtl_work
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./SingleCycleProcessor_run_msim_rtl_verilog.do PAUSED at line 12
-# End time: 12:14:22 on Aug 27,2022, Elapsed time: 0:00:13
-# Errors: 1, Warnings: 0
+# Loading work.signext_tb
+# Loading work.signext
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# End time: 16:53:16 on Aug 28,2022, Elapsed time: 0:00:32
+# Errors: 0, Warnings: 0
