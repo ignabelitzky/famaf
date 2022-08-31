@@ -9,52 +9,44 @@
 # Copying /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:30:29 on Aug 29,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv 
-# -- Compiling module imem
+# Start time: 20:28:24 on Aug 31,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv 
+# -- Compiling module flopr
 # 
 # Top level modules:
-# 	imem
-# End time: 17:30:29 on Aug 29,2022, Elapsed time: 0:00:00
+# 	flopr
+# End time: 20:28:24 on Aug 31,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:30:29 on Aug 29,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv 
-# -- Compiling module imem_tb
+# Start time: 20:28:24 on Aug 31,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv 
+# -- Compiling module flopr_tb
 # 
 # Top level modules:
-# 	imem_tb
-# End time: 17:30:29 on Aug 29,2022, Elapsed time: 0:00:00
+# 	flopr_tb
+# End time: 20:28:25 on Aug 31,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  imem_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" imem_tb 
-# Start time: 17:30:29 on Aug 29,2022
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  flopr_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" flopr_tb 
+# Start time: 20:28:25 on Aug 31,2022
 # Loading sv_std.std
-# Loading work.imem_tb
-# Loading work.imem
+# Loading work.flopr_tb
+# Loading work.flopr
 # 
 # add wave *
-# Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
-# Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
-# Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
-# Cannot lock WLF file: "vsim.wlf"
-#           errno 11: Resource temporarily unavailable.
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: ignacio  Hostname: fedora  ProcessID: 8181
-#           Attempting to use alternate WLF file "./wlft3n6TD6".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft3n6TD6
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-#                   50/                  50 tests finished succesfully
-# ** Note: $stop    : /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv(95)
-#    Time: 496 ns  Iteration: 0  Instance: /imem_tb
-# Break in Module imem_tb at /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv line 95
+# 10 tests completed with  0 errors
+# ** Note: $stop    : /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv(73)
+#    Time: 105 ns  Iteration: 0  Instance: /flopr_tb
+# Break in Module flopr_tb at /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv line 73
+# End time: 20:29:47 on Aug 31,2022, Elapsed time: 0:01:22
+# Errors: 0, Warnings: 0

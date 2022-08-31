@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
-set_global_assignment -name TOP_LEVEL_ENTITY imem
+set_global_assignment -name TOP_LEVEL_ENTITY flopr
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:06:39  AUGUST 26, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -65,7 +65,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE imem.sv
 set_global_assignment -name SYSTEMVERILOG_FILE flopr_tb.sv
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH imem_tb -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH flopr_tb -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME flopr_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id flopr_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME flopr_tb -section_id flopr_tb

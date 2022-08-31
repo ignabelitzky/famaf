@@ -9,55 +9,55 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/simulation/modelsim
-vimem
+vflopr
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1661805029
+!s110 1661988504
 !i10b 1
-!s100 THCK?0mcLXgAJhSd7i]H^0
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-INLU:@XlPRom5aAT@8mhM:0
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s100 5@GXNA<AM?zH;mXJ`ZlI80
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I96ON^FJ6MzhISmL213XT40
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1661804994
-8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
-F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
+w1661613427
+8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv
+F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv
 !i122 0
-L0 1 27
-Z5 OV;L;2020.1;71
+L0 3 12
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1661805029.000000
-!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv|
+Z5 !s108 1661988504.000000
+!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr.sv|
 !i113 1
-Z7 o-sv -work work
-Z8 !s92 -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1
-Z9 tCvgOpt 0
-vimem_tb
+Z6 o-sv -work work
+Z7 !s92 -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1
+Z8 tCvgOpt 0
+vflopr_tb
 R1
-R2
+!s110 1661988505
 !i10b 1
-!s100 ZOGGbOmBmS8X8VOG54Web1
+!s100 K=Q9C0zNdPDTj>Agb@Ra<0
+R2
+IPl[3KQ:lb?D90S4A?Bf?]3
 R3
-I=b63zk`hak>Lnfe_I^izZ2
-R4
 S1
 R0
-w1661804962
-8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv
-F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv
+w1661988476
+8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv
+F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv
 !i122 1
-L0 3 97
-R5
+L0 17 60
+R4
 r1
 !s85 0
 31
-R6
-!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem_tb.sv|
+R5
+!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/flopr_tb.sv|
 !i113 1
+R6
 R7
 R8
-R9
