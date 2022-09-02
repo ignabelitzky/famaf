@@ -1,8 +1,9 @@
-module alu(input logic [63:0] a,
-			  input logic [63:0] b,
-			  input logic [3:0] ALUControl,
-			  output logic [63:0] result,
-			  output logic zero);
+module alu #(parameter N = 64)
+				(input logic [N-1:0] a,
+			    input logic [N-1:0] b,
+			    input logic [3:0] ALUControl,
+			    output logic [N-1:0] result,
+			    output logic zero);
 	always_comb begin
 		case(ALUControl)
 			4'b0000: result = a & b;

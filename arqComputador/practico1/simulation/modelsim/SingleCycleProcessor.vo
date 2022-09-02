@@ -1,0 +1,4493 @@
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
+
+// DATE "09/02/2022 15:30:20"
+
+// 
+// Device: Altera EP4CE22F17C6 Package FBGA256
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module fetch (
+	PCSrc_F,
+	clk,
+	reset,
+	PCBranch_F,
+	imem_addr_F);
+input 	PCSrc_F;
+input 	clk;
+input 	reset;
+input 	[63:0] PCBranch_F;
+output 	[63:0] imem_addr_F;
+
+// Design Ports Information
+// imem_addr_F[0]	=>  Location: PIN_R10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[1]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[2]	=>  Location: PIN_G2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[3]	=>  Location: PIN_C2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[4]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[5]	=>  Location: PIN_B4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[6]	=>  Location: PIN_A12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[7]	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[8]	=>  Location: PIN_B7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[9]	=>  Location: PIN_D11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[10]	=>  Location: PIN_B6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[11]	=>  Location: PIN_B12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[12]	=>  Location: PIN_B3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[13]	=>  Location: PIN_A15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[14]	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[15]	=>  Location: PIN_A2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[16]	=>  Location: PIN_E10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[17]	=>  Location: PIN_B16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[18]	=>  Location: PIN_F15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[19]	=>  Location: PIN_P15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[20]	=>  Location: PIN_E7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[21]	=>  Location: PIN_F3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[22]	=>  Location: PIN_J2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[23]	=>  Location: PIN_A14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[24]	=>  Location: PIN_C15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[25]	=>  Location: PIN_N6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[26]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[27]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[28]	=>  Location: PIN_A6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[29]	=>  Location: PIN_C16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[30]	=>  Location: PIN_D6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[31]	=>  Location: PIN_D9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[32]	=>  Location: PIN_B5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[33]	=>  Location: PIN_L16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[34]	=>  Location: PIN_J1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[35]	=>  Location: PIN_L1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[36]	=>  Location: PIN_J16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[37]	=>  Location: PIN_P16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[38]	=>  Location: PIN_N15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[39]	=>  Location: PIN_T2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[40]	=>  Location: PIN_T10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[41]	=>  Location: PIN_N1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[42]	=>  Location: PIN_F13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[43]	=>  Location: PIN_J15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[44]	=>  Location: PIN_D1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[45]	=>  Location: PIN_K15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[46]	=>  Location: PIN_F14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[47]	=>  Location: PIN_P1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[48]	=>  Location: PIN_L3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[49]	=>  Location: PIN_T11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[50]	=>  Location: PIN_L8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[51]	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[52]	=>  Location: PIN_N8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[53]	=>  Location: PIN_T5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[54]	=>  Location: PIN_M6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[55]	=>  Location: PIN_R13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[56]	=>  Location: PIN_R6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[57]	=>  Location: PIN_K16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[58]	=>  Location: PIN_R4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[59]	=>  Location: PIN_K1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[60]	=>  Location: PIN_T6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[61]	=>  Location: PIN_T13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[62]	=>  Location: PIN_T14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// imem_addr_F[63]	=>  Location: PIN_N5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[0]	=>  Location: PIN_N11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_E1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// reset	=>  Location: PIN_M2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCSrc_F	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[1]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[2]	=>  Location: PIN_D3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[3]	=>  Location: PIN_E6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[4]	=>  Location: PIN_B10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[5]	=>  Location: PIN_B1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[6]	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[7]	=>  Location: PIN_A13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[8]	=>  Location: PIN_C9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[9]	=>  Location: PIN_C3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[10]	=>  Location: PIN_F1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[11]	=>  Location: PIN_F8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[12]	=>  Location: PIN_G1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[13]	=>  Location: PIN_D14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[14]	=>  Location: PIN_D5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[15]	=>  Location: PIN_C14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[16]	=>  Location: PIN_E11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[17]	=>  Location: PIN_F9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[18]	=>  Location: PIN_B14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[19]	=>  Location: PIN_B13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[20]	=>  Location: PIN_A9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[21]	=>  Location: PIN_B9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[22]	=>  Location: PIN_D16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[23]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[24]	=>  Location: PIN_B8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[25]	=>  Location: PIN_A5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[26]	=>  Location: PIN_A4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[27]	=>  Location: PIN_A11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[28]	=>  Location: PIN_A10,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[29]	=>  Location: PIN_L4,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[30]	=>  Location: PIN_A3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[31]	=>  Location: PIN_R12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[32]	=>  Location: PIN_D15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[33]	=>  Location: PIN_F2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[34]	=>  Location: PIN_K5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[35]	=>  Location: PIN_P11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[36]	=>  Location: PIN_L2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[37]	=>  Location: PIN_R16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[38]	=>  Location: PIN_G16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[39]	=>  Location: PIN_L13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[40]	=>  Location: PIN_T12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[41]	=>  Location: PIN_N16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[42]	=>  Location: PIN_L14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[43]	=>  Location: PIN_P2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[44]	=>  Location: PIN_P6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[45]	=>  Location: PIN_G5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[46]	=>  Location: PIN_R1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[47]	=>  Location: PIN_L15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[48]	=>  Location: PIN_J14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[49]	=>  Location: PIN_R7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[50]	=>  Location: PIN_N9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[51]	=>  Location: PIN_N2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[52]	=>  Location: PIN_G15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[53]	=>  Location: PIN_L7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[54]	=>  Location: PIN_P8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[55]	=>  Location: PIN_K2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[56]	=>  Location: PIN_M7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[57]	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[58]	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[59]	=>  Location: PIN_T7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[60]	=>  Location: PIN_R5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[61]	=>  Location: PIN_R11,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[62]	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PCBranch_F[63]	=>  Location: PIN_M15,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \imem_addr_F[0]~output_o ;
+wire \imem_addr_F[1]~output_o ;
+wire \imem_addr_F[2]~output_o ;
+wire \imem_addr_F[3]~output_o ;
+wire \imem_addr_F[4]~output_o ;
+wire \imem_addr_F[5]~output_o ;
+wire \imem_addr_F[6]~output_o ;
+wire \imem_addr_F[7]~output_o ;
+wire \imem_addr_F[8]~output_o ;
+wire \imem_addr_F[9]~output_o ;
+wire \imem_addr_F[10]~output_o ;
+wire \imem_addr_F[11]~output_o ;
+wire \imem_addr_F[12]~output_o ;
+wire \imem_addr_F[13]~output_o ;
+wire \imem_addr_F[14]~output_o ;
+wire \imem_addr_F[15]~output_o ;
+wire \imem_addr_F[16]~output_o ;
+wire \imem_addr_F[17]~output_o ;
+wire \imem_addr_F[18]~output_o ;
+wire \imem_addr_F[19]~output_o ;
+wire \imem_addr_F[20]~output_o ;
+wire \imem_addr_F[21]~output_o ;
+wire \imem_addr_F[22]~output_o ;
+wire \imem_addr_F[23]~output_o ;
+wire \imem_addr_F[24]~output_o ;
+wire \imem_addr_F[25]~output_o ;
+wire \imem_addr_F[26]~output_o ;
+wire \imem_addr_F[27]~output_o ;
+wire \imem_addr_F[28]~output_o ;
+wire \imem_addr_F[29]~output_o ;
+wire \imem_addr_F[30]~output_o ;
+wire \imem_addr_F[31]~output_o ;
+wire \imem_addr_F[32]~output_o ;
+wire \imem_addr_F[33]~output_o ;
+wire \imem_addr_F[34]~output_o ;
+wire \imem_addr_F[35]~output_o ;
+wire \imem_addr_F[36]~output_o ;
+wire \imem_addr_F[37]~output_o ;
+wire \imem_addr_F[38]~output_o ;
+wire \imem_addr_F[39]~output_o ;
+wire \imem_addr_F[40]~output_o ;
+wire \imem_addr_F[41]~output_o ;
+wire \imem_addr_F[42]~output_o ;
+wire \imem_addr_F[43]~output_o ;
+wire \imem_addr_F[44]~output_o ;
+wire \imem_addr_F[45]~output_o ;
+wire \imem_addr_F[46]~output_o ;
+wire \imem_addr_F[47]~output_o ;
+wire \imem_addr_F[48]~output_o ;
+wire \imem_addr_F[49]~output_o ;
+wire \imem_addr_F[50]~output_o ;
+wire \imem_addr_F[51]~output_o ;
+wire \imem_addr_F[52]~output_o ;
+wire \imem_addr_F[53]~output_o ;
+wire \imem_addr_F[54]~output_o ;
+wire \imem_addr_F[55]~output_o ;
+wire \imem_addr_F[56]~output_o ;
+wire \imem_addr_F[57]~output_o ;
+wire \imem_addr_F[58]~output_o ;
+wire \imem_addr_F[59]~output_o ;
+wire \imem_addr_F[60]~output_o ;
+wire \imem_addr_F[61]~output_o ;
+wire \imem_addr_F[62]~output_o ;
+wire \imem_addr_F[63]~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \PCBranch_F[0]~input_o ;
+wire \floprDevice|q[0]~feeder_combout ;
+wire \reset~input_o ;
+wire \reset~inputclkctrl_outclk ;
+wire \PCSrc_F~input_o ;
+wire \PCBranch_F[1]~input_o ;
+wire \floprDevice|q[2]~62_combout ;
+wire \PCBranch_F[2]~input_o ;
+wire \floprDevice|q[2]~63 ;
+wire \floprDevice|q[3]~64_combout ;
+wire \PCBranch_F[3]~input_o ;
+wire \floprDevice|q[3]~65 ;
+wire \floprDevice|q[4]~66_combout ;
+wire \PCBranch_F[4]~input_o ;
+wire \floprDevice|q[4]~67 ;
+wire \floprDevice|q[5]~68_combout ;
+wire \PCBranch_F[5]~input_o ;
+wire \floprDevice|q[5]~69 ;
+wire \floprDevice|q[6]~70_combout ;
+wire \PCBranch_F[6]~input_o ;
+wire \floprDevice|q[6]~71 ;
+wire \floprDevice|q[7]~72_combout ;
+wire \PCBranch_F[7]~input_o ;
+wire \floprDevice|q[7]~73 ;
+wire \floprDevice|q[8]~74_combout ;
+wire \PCBranch_F[8]~input_o ;
+wire \floprDevice|q[8]~75 ;
+wire \floprDevice|q[9]~76_combout ;
+wire \PCBranch_F[9]~input_o ;
+wire \floprDevice|q[9]~77 ;
+wire \floprDevice|q[10]~78_combout ;
+wire \PCBranch_F[10]~input_o ;
+wire \floprDevice|q[10]~79 ;
+wire \floprDevice|q[11]~80_combout ;
+wire \PCBranch_F[11]~input_o ;
+wire \floprDevice|q[11]~81 ;
+wire \floprDevice|q[12]~82_combout ;
+wire \PCBranch_F[12]~input_o ;
+wire \floprDevice|q[12]~83 ;
+wire \floprDevice|q[13]~84_combout ;
+wire \PCBranch_F[13]~input_o ;
+wire \floprDevice|q[13]~85 ;
+wire \floprDevice|q[14]~86_combout ;
+wire \PCBranch_F[14]~input_o ;
+wire \floprDevice|q[14]~87 ;
+wire \floprDevice|q[15]~88_combout ;
+wire \PCBranch_F[15]~input_o ;
+wire \floprDevice|q[15]~89 ;
+wire \floprDevice|q[16]~90_combout ;
+wire \PCBranch_F[16]~input_o ;
+wire \floprDevice|q[16]~91 ;
+wire \floprDevice|q[17]~92_combout ;
+wire \PCBranch_F[17]~input_o ;
+wire \floprDevice|q[17]~93 ;
+wire \floprDevice|q[18]~94_combout ;
+wire \PCBranch_F[18]~input_o ;
+wire \floprDevice|q[18]~95 ;
+wire \floprDevice|q[19]~96_combout ;
+wire \PCBranch_F[19]~input_o ;
+wire \floprDevice|q[19]~97 ;
+wire \floprDevice|q[20]~98_combout ;
+wire \PCBranch_F[20]~input_o ;
+wire \floprDevice|q[20]~99 ;
+wire \floprDevice|q[21]~100_combout ;
+wire \PCBranch_F[21]~input_o ;
+wire \floprDevice|q[21]~101 ;
+wire \floprDevice|q[22]~102_combout ;
+wire \PCBranch_F[22]~input_o ;
+wire \floprDevice|q[22]~103 ;
+wire \floprDevice|q[23]~104_combout ;
+wire \PCBranch_F[23]~input_o ;
+wire \floprDevice|q[23]~105 ;
+wire \floprDevice|q[24]~106_combout ;
+wire \PCBranch_F[24]~input_o ;
+wire \floprDevice|q[24]~107 ;
+wire \floprDevice|q[25]~108_combout ;
+wire \PCBranch_F[25]~input_o ;
+wire \floprDevice|q[25]~109 ;
+wire \floprDevice|q[26]~110_combout ;
+wire \PCBranch_F[26]~input_o ;
+wire \floprDevice|q[26]~111 ;
+wire \floprDevice|q[27]~112_combout ;
+wire \PCBranch_F[27]~input_o ;
+wire \floprDevice|q[27]~113 ;
+wire \floprDevice|q[28]~114_combout ;
+wire \PCBranch_F[28]~input_o ;
+wire \floprDevice|q[28]~115 ;
+wire \floprDevice|q[29]~116_combout ;
+wire \PCBranch_F[29]~input_o ;
+wire \floprDevice|q[29]~117 ;
+wire \floprDevice|q[30]~118_combout ;
+wire \PCBranch_F[30]~input_o ;
+wire \floprDevice|q[30]~119 ;
+wire \floprDevice|q[31]~120_combout ;
+wire \PCBranch_F[31]~input_o ;
+wire \floprDevice|q[31]~121 ;
+wire \floprDevice|q[32]~122_combout ;
+wire \PCBranch_F[32]~input_o ;
+wire \floprDevice|q[32]~123 ;
+wire \floprDevice|q[33]~124_combout ;
+wire \PCBranch_F[33]~input_o ;
+wire \floprDevice|q[33]~125 ;
+wire \floprDevice|q[34]~126_combout ;
+wire \PCBranch_F[34]~input_o ;
+wire \floprDevice|q[34]~127 ;
+wire \floprDevice|q[35]~128_combout ;
+wire \PCBranch_F[35]~input_o ;
+wire \floprDevice|q[35]~129 ;
+wire \floprDevice|q[36]~130_combout ;
+wire \PCBranch_F[36]~input_o ;
+wire \floprDevice|q[36]~131 ;
+wire \floprDevice|q[37]~132_combout ;
+wire \PCBranch_F[37]~input_o ;
+wire \floprDevice|q[37]~133 ;
+wire \floprDevice|q[38]~134_combout ;
+wire \PCBranch_F[38]~input_o ;
+wire \floprDevice|q[38]~135 ;
+wire \floprDevice|q[39]~136_combout ;
+wire \PCBranch_F[39]~input_o ;
+wire \floprDevice|q[39]~137 ;
+wire \floprDevice|q[40]~138_combout ;
+wire \PCBranch_F[40]~input_o ;
+wire \floprDevice|q[40]~139 ;
+wire \floprDevice|q[41]~140_combout ;
+wire \PCBranch_F[41]~input_o ;
+wire \floprDevice|q[41]~141 ;
+wire \floprDevice|q[42]~142_combout ;
+wire \PCBranch_F[42]~input_o ;
+wire \floprDevice|q[42]~143 ;
+wire \floprDevice|q[43]~144_combout ;
+wire \PCBranch_F[43]~input_o ;
+wire \floprDevice|q[43]~145 ;
+wire \floprDevice|q[44]~146_combout ;
+wire \PCBranch_F[44]~input_o ;
+wire \floprDevice|q[44]~147 ;
+wire \floprDevice|q[45]~148_combout ;
+wire \PCBranch_F[45]~input_o ;
+wire \floprDevice|q[45]~149 ;
+wire \floprDevice|q[46]~150_combout ;
+wire \PCBranch_F[46]~input_o ;
+wire \floprDevice|q[46]~151 ;
+wire \floprDevice|q[47]~152_combout ;
+wire \PCBranch_F[47]~input_o ;
+wire \floprDevice|q[47]~153 ;
+wire \floprDevice|q[48]~154_combout ;
+wire \PCBranch_F[48]~input_o ;
+wire \floprDevice|q[48]~155 ;
+wire \floprDevice|q[49]~156_combout ;
+wire \PCBranch_F[49]~input_o ;
+wire \floprDevice|q[49]~157 ;
+wire \floprDevice|q[50]~158_combout ;
+wire \PCBranch_F[50]~input_o ;
+wire \floprDevice|q[50]~159 ;
+wire \floprDevice|q[51]~160_combout ;
+wire \PCBranch_F[51]~input_o ;
+wire \floprDevice|q[51]~161 ;
+wire \floprDevice|q[52]~162_combout ;
+wire \PCBranch_F[52]~input_o ;
+wire \floprDevice|q[52]~163 ;
+wire \floprDevice|q[53]~164_combout ;
+wire \PCBranch_F[53]~input_o ;
+wire \floprDevice|q[53]~165 ;
+wire \floprDevice|q[54]~166_combout ;
+wire \PCBranch_F[54]~input_o ;
+wire \floprDevice|q[54]~167 ;
+wire \floprDevice|q[55]~168_combout ;
+wire \PCBranch_F[55]~input_o ;
+wire \floprDevice|q[55]~169 ;
+wire \floprDevice|q[56]~170_combout ;
+wire \PCBranch_F[56]~input_o ;
+wire \floprDevice|q[56]~171 ;
+wire \floprDevice|q[57]~172_combout ;
+wire \PCBranch_F[57]~input_o ;
+wire \floprDevice|q[57]~173 ;
+wire \floprDevice|q[58]~174_combout ;
+wire \PCBranch_F[58]~input_o ;
+wire \floprDevice|q[58]~175 ;
+wire \floprDevice|q[59]~176_combout ;
+wire \PCBranch_F[59]~input_o ;
+wire \floprDevice|q[59]~177 ;
+wire \floprDevice|q[60]~178_combout ;
+wire \PCBranch_F[60]~input_o ;
+wire \floprDevice|q[60]~179 ;
+wire \floprDevice|q[61]~180_combout ;
+wire \PCBranch_F[61]~input_o ;
+wire \floprDevice|q[61]~181 ;
+wire \floprDevice|q[62]~182_combout ;
+wire \PCBranch_F[62]~input_o ;
+wire \floprDevice|q[62]~183 ;
+wire \floprDevice|q[63]~184_combout ;
+wire \PCBranch_F[63]~input_o ;
+wire [63:0] \floprDevice|q ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X34_Y0_N23
+cycloneive_io_obuf \imem_addr_F[0]~output (
+	.i(\floprDevice|q [0]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[0]~output .bus_hold = "false";
+defparam \imem_addr_F[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X23_Y34_N16
+cycloneive_io_obuf \imem_addr_F[1]~output (
+	.i(\floprDevice|q [1]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[1]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[1]~output .bus_hold = "false";
+defparam \imem_addr_F[1]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y23_N16
+cycloneive_io_obuf \imem_addr_F[2]~output (
+	.i(\floprDevice|q [2]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[2]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[2]~output .bus_hold = "false";
+defparam \imem_addr_F[2]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y27_N2
+cycloneive_io_obuf \imem_addr_F[3]~output (
+	.i(\floprDevice|q [3]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[3]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[3]~output .bus_hold = "false";
+defparam \imem_addr_F[3]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X29_Y34_N16
+cycloneive_io_obuf \imem_addr_F[4]~output (
+	.i(\floprDevice|q [4]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[4]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[4]~output .bus_hold = "false";
+defparam \imem_addr_F[4]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X7_Y34_N2
+cycloneive_io_obuf \imem_addr_F[5]~output (
+	.i(\floprDevice|q [5]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[5]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[5]~output .bus_hold = "false";
+defparam \imem_addr_F[5]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X43_Y34_N16
+cycloneive_io_obuf \imem_addr_F[6]~output (
+	.i(\floprDevice|q [6]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[6]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[6]~output .bus_hold = "false";
+defparam \imem_addr_F[6]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y34_N23
+cycloneive_io_obuf \imem_addr_F[7]~output (
+	.i(\floprDevice|q [7]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[7]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[7]~output .bus_hold = "false";
+defparam \imem_addr_F[7]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y34_N2
+cycloneive_io_obuf \imem_addr_F[8]~output (
+	.i(\floprDevice|q [8]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[8]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[8]~output .bus_hold = "false";
+defparam \imem_addr_F[8]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X51_Y34_N16
+cycloneive_io_obuf \imem_addr_F[9]~output (
+	.i(\floprDevice|q [9]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[9]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[9]~output .bus_hold = "false";
+defparam \imem_addr_F[9]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X16_Y34_N9
+cycloneive_io_obuf \imem_addr_F[10]~output (
+	.i(\floprDevice|q [10]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[10]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[10]~output .bus_hold = "false";
+defparam \imem_addr_F[10]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X43_Y34_N23
+cycloneive_io_obuf \imem_addr_F[11]~output (
+	.i(\floprDevice|q [11]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[11]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[11]~output .bus_hold = "false";
+defparam \imem_addr_F[11]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X3_Y34_N2
+cycloneive_io_obuf \imem_addr_F[12]~output (
+	.i(\floprDevice|q [12]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[12]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[12]~output .bus_hold = "false";
+defparam \imem_addr_F[12]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X38_Y34_N16
+cycloneive_io_obuf \imem_addr_F[13]~output (
+	.i(\floprDevice|q [13]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[13]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[13]~output .bus_hold = "false";
+defparam \imem_addr_F[13]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y34_N9
+cycloneive_io_obuf \imem_addr_F[14]~output (
+	.i(\floprDevice|q [14]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[14]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[14]~output .bus_hold = "false";
+defparam \imem_addr_F[14]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X7_Y34_N9
+cycloneive_io_obuf \imem_addr_F[15]~output (
+	.i(\floprDevice|q [15]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[15]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[15]~output .bus_hold = "false";
+defparam \imem_addr_F[15]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X45_Y34_N16
+cycloneive_io_obuf \imem_addr_F[16]~output (
+	.i(\floprDevice|q [16]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[16]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[16]~output .bus_hold = "false";
+defparam \imem_addr_F[16]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y22_N2
+cycloneive_io_obuf \imem_addr_F[17]~output (
+	.i(\floprDevice|q [17]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[17]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[17]~output .bus_hold = "false";
+defparam \imem_addr_F[17]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y22_N9
+cycloneive_io_obuf \imem_addr_F[18]~output (
+	.i(\floprDevice|q [18]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[18]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[18]~output .bus_hold = "false";
+defparam \imem_addr_F[18]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y6_N16
+cycloneive_io_obuf \imem_addr_F[19]~output (
+	.i(\floprDevice|q [19]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[19]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[19]~output .bus_hold = "false";
+defparam \imem_addr_F[19]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X16_Y34_N16
+cycloneive_io_obuf \imem_addr_F[20]~output (
+	.i(\floprDevice|q [20]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[20]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[20]~output .bus_hold = "false";
+defparam \imem_addr_F[20]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y26_N16
+cycloneive_io_obuf \imem_addr_F[21]~output (
+	.i(\floprDevice|q [21]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[21]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[21]~output .bus_hold = "false";
+defparam \imem_addr_F[21]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y15_N2
+cycloneive_io_obuf \imem_addr_F[22]~output (
+	.i(\floprDevice|q [22]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[22]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[22]~output .bus_hold = "false";
+defparam \imem_addr_F[22]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X47_Y34_N23
+cycloneive_io_obuf \imem_addr_F[23]~output (
+	.i(\floprDevice|q [23]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[23]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[23]~output .bus_hold = "false";
+defparam \imem_addr_F[23]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y30_N2
+cycloneive_io_obuf \imem_addr_F[24]~output (
+	.i(\floprDevice|q [24]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[24]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[24]~output .bus_hold = "false";
+defparam \imem_addr_F[24]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X5_Y0_N2
+cycloneive_io_obuf \imem_addr_F[25]~output (
+	.i(\floprDevice|q [25]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[25]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[25]~output .bus_hold = "false";
+defparam \imem_addr_F[25]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X51_Y34_N23
+cycloneive_io_obuf \imem_addr_F[26]~output (
+	.i(\floprDevice|q [26]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[26]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[26]~output .bus_hold = "false";
+defparam \imem_addr_F[26]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y34_N9
+cycloneive_io_obuf \imem_addr_F[27]~output (
+	.i(\floprDevice|q [27]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[27]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[27]~output .bus_hold = "false";
+defparam \imem_addr_F[27]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X16_Y34_N2
+cycloneive_io_obuf \imem_addr_F[28]~output (
+	.i(\floprDevice|q [28]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[28]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[28]~output .bus_hold = "false";
+defparam \imem_addr_F[28]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y30_N9
+cycloneive_io_obuf \imem_addr_F[29]~output (
+	.i(\floprDevice|q [29]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[29]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[29]~output .bus_hold = "false";
+defparam \imem_addr_F[29]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X9_Y34_N9
+cycloneive_io_obuf \imem_addr_F[30]~output (
+	.i(\floprDevice|q [30]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[30]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[30]~output .bus_hold = "false";
+defparam \imem_addr_F[30]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X31_Y34_N9
+cycloneive_io_obuf \imem_addr_F[31]~output (
+	.i(\floprDevice|q [31]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[31]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[31]~output .bus_hold = "false";
+defparam \imem_addr_F[31]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X11_Y34_N2
+cycloneive_io_obuf \imem_addr_F[32]~output (
+	.i(\floprDevice|q [32]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[32]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[32]~output .bus_hold = "false";
+defparam \imem_addr_F[32]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y11_N9
+cycloneive_io_obuf \imem_addr_F[33]~output (
+	.i(\floprDevice|q [33]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[33]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[33]~output .bus_hold = "false";
+defparam \imem_addr_F[33]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y15_N9
+cycloneive_io_obuf \imem_addr_F[34]~output (
+	.i(\floprDevice|q [34]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[34]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[34]~output .bus_hold = "false";
+defparam \imem_addr_F[34]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y11_N9
+cycloneive_io_obuf \imem_addr_F[35]~output (
+	.i(\floprDevice|q [35]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[35]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[35]~output .bus_hold = "false";
+defparam \imem_addr_F[35]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y14_N9
+cycloneive_io_obuf \imem_addr_F[36]~output (
+	.i(\floprDevice|q [36]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[36]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[36]~output .bus_hold = "false";
+defparam \imem_addr_F[36]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y7_N9
+cycloneive_io_obuf \imem_addr_F[37]~output (
+	.i(\floprDevice|q [37]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[37]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[37]~output .bus_hold = "false";
+defparam \imem_addr_F[37]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y9_N16
+cycloneive_io_obuf \imem_addr_F[38]~output (
+	.i(\floprDevice|q [38]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[38]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[38]~output .bus_hold = "false";
+defparam \imem_addr_F[38]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X3_Y0_N2
+cycloneive_io_obuf \imem_addr_F[39]~output (
+	.i(\floprDevice|q [39]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[39]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[39]~output .bus_hold = "false";
+defparam \imem_addr_F[39]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X34_Y0_N16
+cycloneive_io_obuf \imem_addr_F[40]~output (
+	.i(\floprDevice|q [40]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[40]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[40]~output .bus_hold = "false";
+defparam \imem_addr_F[40]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y7_N2
+cycloneive_io_obuf \imem_addr_F[41]~output (
+	.i(\floprDevice|q [41]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[41]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[41]~output .bus_hold = "false";
+defparam \imem_addr_F[41]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y21_N23
+cycloneive_io_obuf \imem_addr_F[42]~output (
+	.i(\floprDevice|q [42]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[42]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[42]~output .bus_hold = "false";
+defparam \imem_addr_F[42]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y14_N2
+cycloneive_io_obuf \imem_addr_F[43]~output (
+	.i(\floprDevice|q [43]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[43]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[43]~output .bus_hold = "false";
+defparam \imem_addr_F[43]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y25_N9
+cycloneive_io_obuf \imem_addr_F[44]~output (
+	.i(\floprDevice|q [44]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[44]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[44]~output .bus_hold = "false";
+defparam \imem_addr_F[44]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y13_N9
+cycloneive_io_obuf \imem_addr_F[45]~output (
+	.i(\floprDevice|q [45]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[45]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[45]~output .bus_hold = "false";
+defparam \imem_addr_F[45]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y24_N23
+cycloneive_io_obuf \imem_addr_F[46]~output (
+	.i(\floprDevice|q [46]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[46]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[46]~output .bus_hold = "false";
+defparam \imem_addr_F[46]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y4_N23
+cycloneive_io_obuf \imem_addr_F[47]~output (
+	.i(\floprDevice|q [47]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[47]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[47]~output .bus_hold = "false";
+defparam \imem_addr_F[47]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y10_N23
+cycloneive_io_obuf \imem_addr_F[48]~output (
+	.i(\floprDevice|q [48]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[48]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[48]~output .bus_hold = "false";
+defparam \imem_addr_F[48]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X36_Y0_N23
+cycloneive_io_obuf \imem_addr_F[49]~output (
+	.i(\floprDevice|q [49]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[49]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[49]~output .bus_hold = "false";
+defparam \imem_addr_F[49]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X18_Y0_N9
+cycloneive_io_obuf \imem_addr_F[50]~output (
+	.i(\floprDevice|q [50]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[50]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[50]~output .bus_hold = "false";
+defparam \imem_addr_F[50]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y0_N9
+cycloneive_io_obuf \imem_addr_F[51]~output (
+	.i(\floprDevice|q [51]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[51]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[51]~output .bus_hold = "false";
+defparam \imem_addr_F[51]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X20_Y0_N2
+cycloneive_io_obuf \imem_addr_F[52]~output (
+	.i(\floprDevice|q [52]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[52]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[52]~output .bus_hold = "false";
+defparam \imem_addr_F[52]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X14_Y0_N16
+cycloneive_io_obuf \imem_addr_F[53]~output (
+	.i(\floprDevice|q [53]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[53]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[53]~output .bus_hold = "false";
+defparam \imem_addr_F[53]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X7_Y0_N9
+cycloneive_io_obuf \imem_addr_F[54]~output (
+	.i(\floprDevice|q [54]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[54]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[54]~output .bus_hold = "false";
+defparam \imem_addr_F[54]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y0_N23
+cycloneive_io_obuf \imem_addr_F[55]~output (
+	.i(\floprDevice|q [55]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[55]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[55]~output .bus_hold = "false";
+defparam \imem_addr_F[55]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X14_Y0_N9
+cycloneive_io_obuf \imem_addr_F[56]~output (
+	.i(\floprDevice|q [56]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[56]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[56]~output .bus_hold = "false";
+defparam \imem_addr_F[56]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X53_Y12_N2
+cycloneive_io_obuf \imem_addr_F[57]~output (
+	.i(\floprDevice|q [57]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[57]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[57]~output .bus_hold = "false";
+defparam \imem_addr_F[57]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X5_Y0_N23
+cycloneive_io_obuf \imem_addr_F[58]~output (
+	.i(\floprDevice|q [58]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[58]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[58]~output .bus_hold = "false";
+defparam \imem_addr_F[58]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X0_Y12_N9
+cycloneive_io_obuf \imem_addr_F[59]~output (
+	.i(\floprDevice|q [59]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[59]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[59]~output .bus_hold = "false";
+defparam \imem_addr_F[59]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X14_Y0_N2
+cycloneive_io_obuf \imem_addr_F[60]~output (
+	.i(\floprDevice|q [60]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[60]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[60]~output .bus_hold = "false";
+defparam \imem_addr_F[60]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X40_Y0_N16
+cycloneive_io_obuf \imem_addr_F[61]~output (
+	.i(\floprDevice|q [61]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[61]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[61]~output .bus_hold = "false";
+defparam \imem_addr_F[61]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X45_Y0_N23
+cycloneive_io_obuf \imem_addr_F[62]~output (
+	.i(\floprDevice|q [62]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[62]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[62]~output .bus_hold = "false";
+defparam \imem_addr_F[62]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X5_Y0_N9
+cycloneive_io_obuf \imem_addr_F[63]~output (
+	.i(\floprDevice|q [63]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\imem_addr_F[63]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \imem_addr_F[63]~output .bus_hold = "false";
+defparam \imem_addr_F[63]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y16_N8
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X43_Y0_N15
+cycloneive_io_ibuf \PCBranch_F[0]~input (
+	.i(PCBranch_F[0]),
+	.ibar(gnd),
+	.o(\PCBranch_F[0]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[0]~input .bus_hold = "false";
+defparam \PCBranch_F[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N30
+cycloneive_lcell_comb \floprDevice|q[0]~feeder (
+// Equation(s):
+// \floprDevice|q[0]~feeder_combout  = \PCBranch_F[0]~input_o 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\PCBranch_F[0]~input_o ),
+	.cin(gnd),
+	.combout(\floprDevice|q[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \floprDevice|q[0]~feeder .lut_mask = 16'hFF00;
+defparam \floprDevice|q[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y16_N15
+cycloneive_io_ibuf \reset~input (
+	.i(reset),
+	.ibar(gnd),
+	.o(\reset~input_o ));
+// synopsys translate_off
+defparam \reset~input .bus_hold = "false";
+defparam \reset~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G4
+cycloneive_clkctrl \reset~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\reset~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\reset~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \reset~inputclkctrl .clock_type = "global clock";
+defparam \reset~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X23_Y34_N22
+cycloneive_io_ibuf \PCSrc_F~input (
+	.i(PCSrc_F),
+	.ibar(gnd),
+	.o(\PCSrc_F~input_o ));
+// synopsys translate_off
+defparam \PCSrc_F~input .bus_hold = "false";
+defparam \PCSrc_F~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N31
+dffeas \floprDevice|q[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\PCSrc_F~input_o ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[0] .is_wysiwyg = "true";
+defparam \floprDevice|q[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: IOIBUF_X38_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[1]~input (
+	.i(PCBranch_F[1]),
+	.ibar(gnd),
+	.o(\PCBranch_F[1]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[1]~input .bus_hold = "false";
+defparam \PCBranch_F[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X23_Y33_N1
+dffeas \floprDevice|q[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\PCBranch_F[1]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\PCSrc_F~input_o ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[1] .is_wysiwyg = "true";
+defparam \floprDevice|q[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N2
+cycloneive_lcell_comb \floprDevice|q[2]~62 (
+// Equation(s):
+// \floprDevice|q[2]~62_combout  = \floprDevice|q [2] $ (VCC)
+// \floprDevice|q[2]~63  = CARRY(\floprDevice|q [2])
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\floprDevice|q[2]~62_combout ),
+	.cout(\floprDevice|q[2]~63 ));
+// synopsys translate_off
+defparam \floprDevice|q[2]~62 .lut_mask = 16'h33CC;
+defparam \floprDevice|q[2]~62 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X1_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[2]~input (
+	.i(PCBranch_F[2]),
+	.ibar(gnd),
+	.o(\PCBranch_F[2]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[2]~input .bus_hold = "false";
+defparam \PCBranch_F[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N3
+dffeas \floprDevice|q[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[2]~62_combout ),
+	.asdata(\PCBranch_F[2]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[2] .is_wysiwyg = "true";
+defparam \floprDevice|q[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N4
+cycloneive_lcell_comb \floprDevice|q[3]~64 (
+// Equation(s):
+// \floprDevice|q[3]~64_combout  = (\floprDevice|q [3] & (!\floprDevice|q[2]~63 )) # (!\floprDevice|q [3] & ((\floprDevice|q[2]~63 ) # (GND)))
+// \floprDevice|q[3]~65  = CARRY((!\floprDevice|q[2]~63 ) # (!\floprDevice|q [3]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[2]~63 ),
+	.combout(\floprDevice|q[3]~64_combout ),
+	.cout(\floprDevice|q[3]~65 ));
+// synopsys translate_off
+defparam \floprDevice|q[3]~64 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[3]~64 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X14_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[3]~input (
+	.i(PCBranch_F[3]),
+	.ibar(gnd),
+	.o(\PCBranch_F[3]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[3]~input .bus_hold = "false";
+defparam \PCBranch_F[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N5
+dffeas \floprDevice|q[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[3]~64_combout ),
+	.asdata(\PCBranch_F[3]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[3] .is_wysiwyg = "true";
+defparam \floprDevice|q[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N6
+cycloneive_lcell_comb \floprDevice|q[4]~66 (
+// Equation(s):
+// \floprDevice|q[4]~66_combout  = (\floprDevice|q [4] & (\floprDevice|q[3]~65  $ (GND))) # (!\floprDevice|q [4] & (!\floprDevice|q[3]~65  & VCC))
+// \floprDevice|q[4]~67  = CARRY((\floprDevice|q [4] & !\floprDevice|q[3]~65 ))
+
+	.dataa(\floprDevice|q [4]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[3]~65 ),
+	.combout(\floprDevice|q[4]~66_combout ),
+	.cout(\floprDevice|q[4]~67 ));
+// synopsys translate_off
+defparam \floprDevice|q[4]~66 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[4]~66 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[4]~input (
+	.i(PCBranch_F[4]),
+	.ibar(gnd),
+	.o(\PCBranch_F[4]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[4]~input .bus_hold = "false";
+defparam \PCBranch_F[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N7
+dffeas \floprDevice|q[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[4]~66_combout ),
+	.asdata(\PCBranch_F[4]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[4] .is_wysiwyg = "true";
+defparam \floprDevice|q[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N8
+cycloneive_lcell_comb \floprDevice|q[5]~68 (
+// Equation(s):
+// \floprDevice|q[5]~68_combout  = (\floprDevice|q [5] & (!\floprDevice|q[4]~67 )) # (!\floprDevice|q [5] & ((\floprDevice|q[4]~67 ) # (GND)))
+// \floprDevice|q[5]~69  = CARRY((!\floprDevice|q[4]~67 ) # (!\floprDevice|q [5]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[4]~67 ),
+	.combout(\floprDevice|q[5]~68_combout ),
+	.cout(\floprDevice|q[5]~69 ));
+// synopsys translate_off
+defparam \floprDevice|q[5]~68 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[5]~68 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y28_N8
+cycloneive_io_ibuf \PCBranch_F[5]~input (
+	.i(PCBranch_F[5]),
+	.ibar(gnd),
+	.o(\PCBranch_F[5]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[5]~input .bus_hold = "false";
+defparam \PCBranch_F[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N9
+dffeas \floprDevice|q[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[5]~68_combout ),
+	.asdata(\PCBranch_F[5]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[5] .is_wysiwyg = "true";
+defparam \floprDevice|q[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N10
+cycloneive_lcell_comb \floprDevice|q[6]~70 (
+// Equation(s):
+// \floprDevice|q[6]~70_combout  = (\floprDevice|q [6] & (\floprDevice|q[5]~69  $ (GND))) # (!\floprDevice|q [6] & (!\floprDevice|q[5]~69  & VCC))
+// \floprDevice|q[6]~71  = CARRY((\floprDevice|q [6] & !\floprDevice|q[5]~69 ))
+
+	.dataa(\floprDevice|q [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[5]~69 ),
+	.combout(\floprDevice|q[6]~70_combout ),
+	.cout(\floprDevice|q[6]~71 ));
+// synopsys translate_off
+defparam \floprDevice|q[6]~70 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[6]~70 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X18_Y34_N22
+cycloneive_io_ibuf \PCBranch_F[6]~input (
+	.i(PCBranch_F[6]),
+	.ibar(gnd),
+	.o(\PCBranch_F[6]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[6]~input .bus_hold = "false";
+defparam \PCBranch_F[6]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N11
+dffeas \floprDevice|q[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[6]~70_combout ),
+	.asdata(\PCBranch_F[6]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[6] .is_wysiwyg = "true";
+defparam \floprDevice|q[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N12
+cycloneive_lcell_comb \floprDevice|q[7]~72 (
+// Equation(s):
+// \floprDevice|q[7]~72_combout  = (\floprDevice|q [7] & (!\floprDevice|q[6]~71 )) # (!\floprDevice|q [7] & ((\floprDevice|q[6]~71 ) # (GND)))
+// \floprDevice|q[7]~73  = CARRY((!\floprDevice|q[6]~71 ) # (!\floprDevice|q [7]))
+
+	.dataa(\floprDevice|q [7]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[6]~71 ),
+	.combout(\floprDevice|q[7]~72_combout ),
+	.cout(\floprDevice|q[7]~73 ));
+// synopsys translate_off
+defparam \floprDevice|q[7]~72 .lut_mask = 16'h5A5F;
+defparam \floprDevice|q[7]~72 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X49_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[7]~input (
+	.i(PCBranch_F[7]),
+	.ibar(gnd),
+	.o(\PCBranch_F[7]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[7]~input .bus_hold = "false";
+defparam \PCBranch_F[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N13
+dffeas \floprDevice|q[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[7]~72_combout ),
+	.asdata(\PCBranch_F[7]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[7] .is_wysiwyg = "true";
+defparam \floprDevice|q[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N14
+cycloneive_lcell_comb \floprDevice|q[8]~74 (
+// Equation(s):
+// \floprDevice|q[8]~74_combout  = (\floprDevice|q [8] & (\floprDevice|q[7]~73  $ (GND))) # (!\floprDevice|q [8] & (!\floprDevice|q[7]~73  & VCC))
+// \floprDevice|q[8]~75  = CARRY((\floprDevice|q [8] & !\floprDevice|q[7]~73 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [8]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[7]~73 ),
+	.combout(\floprDevice|q[8]~74_combout ),
+	.cout(\floprDevice|q[8]~75 ));
+// synopsys translate_off
+defparam \floprDevice|q[8]~74 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[8]~74 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[8]~input (
+	.i(PCBranch_F[8]),
+	.ibar(gnd),
+	.o(\PCBranch_F[8]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[8]~input .bus_hold = "false";
+defparam \PCBranch_F[8]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N15
+dffeas \floprDevice|q[8] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[8]~74_combout ),
+	.asdata(\PCBranch_F[8]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[8] .is_wysiwyg = "true";
+defparam \floprDevice|q[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N16
+cycloneive_lcell_comb \floprDevice|q[9]~76 (
+// Equation(s):
+// \floprDevice|q[9]~76_combout  = (\floprDevice|q [9] & (!\floprDevice|q[8]~75 )) # (!\floprDevice|q [9] & ((\floprDevice|q[8]~75 ) # (GND)))
+// \floprDevice|q[9]~77  = CARRY((!\floprDevice|q[8]~75 ) # (!\floprDevice|q [9]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [9]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[8]~75 ),
+	.combout(\floprDevice|q[9]~76_combout ),
+	.cout(\floprDevice|q[9]~77 ));
+// synopsys translate_off
+defparam \floprDevice|q[9]~76 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[9]~76 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X1_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[9]~input (
+	.i(PCBranch_F[9]),
+	.ibar(gnd),
+	.o(\PCBranch_F[9]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[9]~input .bus_hold = "false";
+defparam \PCBranch_F[9]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N17
+dffeas \floprDevice|q[9] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[9]~76_combout ),
+	.asdata(\PCBranch_F[9]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [9]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[9] .is_wysiwyg = "true";
+defparam \floprDevice|q[9] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N18
+cycloneive_lcell_comb \floprDevice|q[10]~78 (
+// Equation(s):
+// \floprDevice|q[10]~78_combout  = (\floprDevice|q [10] & (\floprDevice|q[9]~77  $ (GND))) # (!\floprDevice|q [10] & (!\floprDevice|q[9]~77  & VCC))
+// \floprDevice|q[10]~79  = CARRY((\floprDevice|q [10] & !\floprDevice|q[9]~77 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [10]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[9]~77 ),
+	.combout(\floprDevice|q[10]~78_combout ),
+	.cout(\floprDevice|q[10]~79 ));
+// synopsys translate_off
+defparam \floprDevice|q[10]~78 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[10]~78 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y23_N1
+cycloneive_io_ibuf \PCBranch_F[10]~input (
+	.i(PCBranch_F[10]),
+	.ibar(gnd),
+	.o(\PCBranch_F[10]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[10]~input .bus_hold = "false";
+defparam \PCBranch_F[10]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N19
+dffeas \floprDevice|q[10] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[10]~78_combout ),
+	.asdata(\PCBranch_F[10]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [10]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[10] .is_wysiwyg = "true";
+defparam \floprDevice|q[10] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N20
+cycloneive_lcell_comb \floprDevice|q[11]~80 (
+// Equation(s):
+// \floprDevice|q[11]~80_combout  = (\floprDevice|q [11] & (!\floprDevice|q[10]~79 )) # (!\floprDevice|q [11] & ((\floprDevice|q[10]~79 ) # (GND)))
+// \floprDevice|q[11]~81  = CARRY((!\floprDevice|q[10]~79 ) # (!\floprDevice|q [11]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [11]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[10]~79 ),
+	.combout(\floprDevice|q[11]~80_combout ),
+	.cout(\floprDevice|q[11]~81 ));
+// synopsys translate_off
+defparam \floprDevice|q[11]~80 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[11]~80 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X20_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[11]~input (
+	.i(PCBranch_F[11]),
+	.ibar(gnd),
+	.o(\PCBranch_F[11]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[11]~input .bus_hold = "false";
+defparam \PCBranch_F[11]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N21
+dffeas \floprDevice|q[11] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[11]~80_combout ),
+	.asdata(\PCBranch_F[11]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [11]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[11] .is_wysiwyg = "true";
+defparam \floprDevice|q[11] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N22
+cycloneive_lcell_comb \floprDevice|q[12]~82 (
+// Equation(s):
+// \floprDevice|q[12]~82_combout  = (\floprDevice|q [12] & (\floprDevice|q[11]~81  $ (GND))) # (!\floprDevice|q [12] & (!\floprDevice|q[11]~81  & VCC))
+// \floprDevice|q[12]~83  = CARRY((\floprDevice|q [12] & !\floprDevice|q[11]~81 ))
+
+	.dataa(\floprDevice|q [12]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[11]~81 ),
+	.combout(\floprDevice|q[12]~82_combout ),
+	.cout(\floprDevice|q[12]~83 ));
+// synopsys translate_off
+defparam \floprDevice|q[12]~82 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[12]~82 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y23_N22
+cycloneive_io_ibuf \PCBranch_F[12]~input (
+	.i(PCBranch_F[12]),
+	.ibar(gnd),
+	.o(\PCBranch_F[12]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[12]~input .bus_hold = "false";
+defparam \PCBranch_F[12]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N23
+dffeas \floprDevice|q[12] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[12]~82_combout ),
+	.asdata(\PCBranch_F[12]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [12]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[12] .is_wysiwyg = "true";
+defparam \floprDevice|q[12] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N24
+cycloneive_lcell_comb \floprDevice|q[13]~84 (
+// Equation(s):
+// \floprDevice|q[13]~84_combout  = (\floprDevice|q [13] & (!\floprDevice|q[12]~83 )) # (!\floprDevice|q [13] & ((\floprDevice|q[12]~83 ) # (GND)))
+// \floprDevice|q[13]~85  = CARRY((!\floprDevice|q[12]~83 ) # (!\floprDevice|q [13]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [13]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[12]~83 ),
+	.combout(\floprDevice|q[13]~84_combout ),
+	.cout(\floprDevice|q[13]~85 ));
+// synopsys translate_off
+defparam \floprDevice|q[13]~84 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[13]~84 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X51_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[13]~input (
+	.i(PCBranch_F[13]),
+	.ibar(gnd),
+	.o(\PCBranch_F[13]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[13]~input .bus_hold = "false";
+defparam \PCBranch_F[13]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N25
+dffeas \floprDevice|q[13] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[13]~84_combout ),
+	.asdata(\PCBranch_F[13]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [13]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[13] .is_wysiwyg = "true";
+defparam \floprDevice|q[13] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N26
+cycloneive_lcell_comb \floprDevice|q[14]~86 (
+// Equation(s):
+// \floprDevice|q[14]~86_combout  = (\floprDevice|q [14] & (\floprDevice|q[13]~85  $ (GND))) # (!\floprDevice|q [14] & (!\floprDevice|q[13]~85  & VCC))
+// \floprDevice|q[14]~87  = CARRY((\floprDevice|q [14] & !\floprDevice|q[13]~85 ))
+
+	.dataa(\floprDevice|q [14]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[13]~85 ),
+	.combout(\floprDevice|q[14]~86_combout ),
+	.cout(\floprDevice|q[14]~87 ));
+// synopsys translate_off
+defparam \floprDevice|q[14]~86 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[14]~86 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X5_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[14]~input (
+	.i(PCBranch_F[14]),
+	.ibar(gnd),
+	.o(\PCBranch_F[14]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[14]~input .bus_hold = "false";
+defparam \PCBranch_F[14]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N27
+dffeas \floprDevice|q[14] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[14]~86_combout ),
+	.asdata(\PCBranch_F[14]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [14]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[14] .is_wysiwyg = "true";
+defparam \floprDevice|q[14] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N28
+cycloneive_lcell_comb \floprDevice|q[15]~88 (
+// Equation(s):
+// \floprDevice|q[15]~88_combout  = (\floprDevice|q [15] & (!\floprDevice|q[14]~87 )) # (!\floprDevice|q [15] & ((\floprDevice|q[14]~87 ) # (GND)))
+// \floprDevice|q[15]~89  = CARRY((!\floprDevice|q[14]~87 ) # (!\floprDevice|q [15]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [15]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[14]~87 ),
+	.combout(\floprDevice|q[15]~88_combout ),
+	.cout(\floprDevice|q[15]~89 ));
+// synopsys translate_off
+defparam \floprDevice|q[15]~88 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[15]~88 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X51_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[15]~input (
+	.i(PCBranch_F[15]),
+	.ibar(gnd),
+	.o(\PCBranch_F[15]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[15]~input .bus_hold = "false";
+defparam \PCBranch_F[15]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N29
+dffeas \floprDevice|q[15] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[15]~88_combout ),
+	.asdata(\PCBranch_F[15]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [15]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[15] .is_wysiwyg = "true";
+defparam \floprDevice|q[15] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y23_N30
+cycloneive_lcell_comb \floprDevice|q[16]~90 (
+// Equation(s):
+// \floprDevice|q[16]~90_combout  = (\floprDevice|q [16] & (\floprDevice|q[15]~89  $ (GND))) # (!\floprDevice|q [16] & (!\floprDevice|q[15]~89  & VCC))
+// \floprDevice|q[16]~91  = CARRY((\floprDevice|q [16] & !\floprDevice|q[15]~89 ))
+
+	.dataa(\floprDevice|q [16]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[15]~89 ),
+	.combout(\floprDevice|q[16]~90_combout ),
+	.cout(\floprDevice|q[16]~91 ));
+// synopsys translate_off
+defparam \floprDevice|q[16]~90 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[16]~90 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X45_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[16]~input (
+	.i(PCBranch_F[16]),
+	.ibar(gnd),
+	.o(\PCBranch_F[16]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[16]~input .bus_hold = "false";
+defparam \PCBranch_F[16]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y23_N31
+dffeas \floprDevice|q[16] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[16]~90_combout ),
+	.asdata(\PCBranch_F[16]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [16]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[16] .is_wysiwyg = "true";
+defparam \floprDevice|q[16] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N0
+cycloneive_lcell_comb \floprDevice|q[17]~92 (
+// Equation(s):
+// \floprDevice|q[17]~92_combout  = (\floprDevice|q [17] & (!\floprDevice|q[16]~91 )) # (!\floprDevice|q [17] & ((\floprDevice|q[16]~91 ) # (GND)))
+// \floprDevice|q[17]~93  = CARRY((!\floprDevice|q[16]~91 ) # (!\floprDevice|q [17]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [17]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[16]~91 ),
+	.combout(\floprDevice|q[17]~92_combout ),
+	.cout(\floprDevice|q[17]~93 ));
+// synopsys translate_off
+defparam \floprDevice|q[17]~92 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[17]~92 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[17]~input (
+	.i(PCBranch_F[17]),
+	.ibar(gnd),
+	.o(\PCBranch_F[17]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[17]~input .bus_hold = "false";
+defparam \PCBranch_F[17]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N1
+dffeas \floprDevice|q[17] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[17]~92_combout ),
+	.asdata(\PCBranch_F[17]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [17]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[17] .is_wysiwyg = "true";
+defparam \floprDevice|q[17] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N2
+cycloneive_lcell_comb \floprDevice|q[18]~94 (
+// Equation(s):
+// \floprDevice|q[18]~94_combout  = (\floprDevice|q [18] & (\floprDevice|q[17]~93  $ (GND))) # (!\floprDevice|q [18] & (!\floprDevice|q[17]~93  & VCC))
+// \floprDevice|q[18]~95  = CARRY((\floprDevice|q [18] & !\floprDevice|q[17]~93 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [18]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[17]~93 ),
+	.combout(\floprDevice|q[18]~94_combout ),
+	.cout(\floprDevice|q[18]~95 ));
+// synopsys translate_off
+defparam \floprDevice|q[18]~94 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[18]~94 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X45_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[18]~input (
+	.i(PCBranch_F[18]),
+	.ibar(gnd),
+	.o(\PCBranch_F[18]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[18]~input .bus_hold = "false";
+defparam \PCBranch_F[18]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N3
+dffeas \floprDevice|q[18] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[18]~94_combout ),
+	.asdata(\PCBranch_F[18]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [18]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[18] .is_wysiwyg = "true";
+defparam \floprDevice|q[18] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N4
+cycloneive_lcell_comb \floprDevice|q[19]~96 (
+// Equation(s):
+// \floprDevice|q[19]~96_combout  = (\floprDevice|q [19] & (!\floprDevice|q[18]~95 )) # (!\floprDevice|q [19] & ((\floprDevice|q[18]~95 ) # (GND)))
+// \floprDevice|q[19]~97  = CARRY((!\floprDevice|q[18]~95 ) # (!\floprDevice|q [19]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [19]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[18]~95 ),
+	.combout(\floprDevice|q[19]~96_combout ),
+	.cout(\floprDevice|q[19]~97 ));
+// synopsys translate_off
+defparam \floprDevice|q[19]~96 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[19]~96 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X49_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[19]~input (
+	.i(PCBranch_F[19]),
+	.ibar(gnd),
+	.o(\PCBranch_F[19]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[19]~input .bus_hold = "false";
+defparam \PCBranch_F[19]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N5
+dffeas \floprDevice|q[19] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[19]~96_combout ),
+	.asdata(\PCBranch_F[19]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [19]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[19] .is_wysiwyg = "true";
+defparam \floprDevice|q[19] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N6
+cycloneive_lcell_comb \floprDevice|q[20]~98 (
+// Equation(s):
+// \floprDevice|q[20]~98_combout  = (\floprDevice|q [20] & (\floprDevice|q[19]~97  $ (GND))) # (!\floprDevice|q [20] & (!\floprDevice|q[19]~97  & VCC))
+// \floprDevice|q[20]~99  = CARRY((\floprDevice|q [20] & !\floprDevice|q[19]~97 ))
+
+	.dataa(\floprDevice|q [20]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[19]~97 ),
+	.combout(\floprDevice|q[20]~98_combout ),
+	.cout(\floprDevice|q[20]~99 ));
+// synopsys translate_off
+defparam \floprDevice|q[20]~98 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[20]~98 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X25_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[20]~input (
+	.i(PCBranch_F[20]),
+	.ibar(gnd),
+	.o(\PCBranch_F[20]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[20]~input .bus_hold = "false";
+defparam \PCBranch_F[20]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N7
+dffeas \floprDevice|q[20] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[20]~98_combout ),
+	.asdata(\PCBranch_F[20]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [20]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[20] .is_wysiwyg = "true";
+defparam \floprDevice|q[20] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N8
+cycloneive_lcell_comb \floprDevice|q[21]~100 (
+// Equation(s):
+// \floprDevice|q[21]~100_combout  = (\floprDevice|q [21] & (!\floprDevice|q[20]~99 )) # (!\floprDevice|q [21] & ((\floprDevice|q[20]~99 ) # (GND)))
+// \floprDevice|q[21]~101  = CARRY((!\floprDevice|q[20]~99 ) # (!\floprDevice|q [21]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [21]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[20]~99 ),
+	.combout(\floprDevice|q[21]~100_combout ),
+	.cout(\floprDevice|q[21]~101 ));
+// synopsys translate_off
+defparam \floprDevice|q[21]~100 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[21]~100 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X25_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[21]~input (
+	.i(PCBranch_F[21]),
+	.ibar(gnd),
+	.o(\PCBranch_F[21]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[21]~input .bus_hold = "false";
+defparam \PCBranch_F[21]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N9
+dffeas \floprDevice|q[21] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[21]~100_combout ),
+	.asdata(\PCBranch_F[21]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [21]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[21] .is_wysiwyg = "true";
+defparam \floprDevice|q[21] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N10
+cycloneive_lcell_comb \floprDevice|q[22]~102 (
+// Equation(s):
+// \floprDevice|q[22]~102_combout  = (\floprDevice|q [22] & (\floprDevice|q[21]~101  $ (GND))) # (!\floprDevice|q [22] & (!\floprDevice|q[21]~101  & VCC))
+// \floprDevice|q[22]~103  = CARRY((\floprDevice|q [22] & !\floprDevice|q[21]~101 ))
+
+	.dataa(\floprDevice|q [22]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[21]~101 ),
+	.combout(\floprDevice|q[22]~102_combout ),
+	.cout(\floprDevice|q[22]~103 ));
+// synopsys translate_off
+defparam \floprDevice|q[22]~102 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[22]~102 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y25_N1
+cycloneive_io_ibuf \PCBranch_F[22]~input (
+	.i(PCBranch_F[22]),
+	.ibar(gnd),
+	.o(\PCBranch_F[22]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[22]~input .bus_hold = "false";
+defparam \PCBranch_F[22]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N11
+dffeas \floprDevice|q[22] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[22]~102_combout ),
+	.asdata(\PCBranch_F[22]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [22]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[22] .is_wysiwyg = "true";
+defparam \floprDevice|q[22] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N12
+cycloneive_lcell_comb \floprDevice|q[23]~104 (
+// Equation(s):
+// \floprDevice|q[23]~104_combout  = (\floprDevice|q [23] & (!\floprDevice|q[22]~103 )) # (!\floprDevice|q [23] & ((\floprDevice|q[22]~103 ) # (GND)))
+// \floprDevice|q[23]~105  = CARRY((!\floprDevice|q[22]~103 ) # (!\floprDevice|q [23]))
+
+	.dataa(\floprDevice|q [23]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[22]~103 ),
+	.combout(\floprDevice|q[23]~104_combout ),
+	.cout(\floprDevice|q[23]~105 ));
+// synopsys translate_off
+defparam \floprDevice|q[23]~104 .lut_mask = 16'h5A5F;
+defparam \floprDevice|q[23]~104 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X25_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[23]~input (
+	.i(PCBranch_F[23]),
+	.ibar(gnd),
+	.o(\PCBranch_F[23]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[23]~input .bus_hold = "false";
+defparam \PCBranch_F[23]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N13
+dffeas \floprDevice|q[23] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[23]~104_combout ),
+	.asdata(\PCBranch_F[23]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [23]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[23] .is_wysiwyg = "true";
+defparam \floprDevice|q[23] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N14
+cycloneive_lcell_comb \floprDevice|q[24]~106 (
+// Equation(s):
+// \floprDevice|q[24]~106_combout  = (\floprDevice|q [24] & (\floprDevice|q[23]~105  $ (GND))) # (!\floprDevice|q [24] & (!\floprDevice|q[23]~105  & VCC))
+// \floprDevice|q[24]~107  = CARRY((\floprDevice|q [24] & !\floprDevice|q[23]~105 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [24]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[23]~105 ),
+	.combout(\floprDevice|q[24]~106_combout ),
+	.cout(\floprDevice|q[24]~107 ));
+// synopsys translate_off
+defparam \floprDevice|q[24]~106 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[24]~106 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X25_Y34_N22
+cycloneive_io_ibuf \PCBranch_F[24]~input (
+	.i(PCBranch_F[24]),
+	.ibar(gnd),
+	.o(\PCBranch_F[24]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[24]~input .bus_hold = "false";
+defparam \PCBranch_F[24]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N15
+dffeas \floprDevice|q[24] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[24]~106_combout ),
+	.asdata(\PCBranch_F[24]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [24]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[24] .is_wysiwyg = "true";
+defparam \floprDevice|q[24] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N16
+cycloneive_lcell_comb \floprDevice|q[25]~108 (
+// Equation(s):
+// \floprDevice|q[25]~108_combout  = (\floprDevice|q [25] & (!\floprDevice|q[24]~107 )) # (!\floprDevice|q [25] & ((\floprDevice|q[24]~107 ) # (GND)))
+// \floprDevice|q[25]~109  = CARRY((!\floprDevice|q[24]~107 ) # (!\floprDevice|q [25]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [25]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[24]~107 ),
+	.combout(\floprDevice|q[25]~108_combout ),
+	.cout(\floprDevice|q[25]~109 ));
+// synopsys translate_off
+defparam \floprDevice|q[25]~108 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[25]~108 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X14_Y34_N22
+cycloneive_io_ibuf \PCBranch_F[25]~input (
+	.i(PCBranch_F[25]),
+	.ibar(gnd),
+	.o(\PCBranch_F[25]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[25]~input .bus_hold = "false";
+defparam \PCBranch_F[25]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N17
+dffeas \floprDevice|q[25] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[25]~108_combout ),
+	.asdata(\PCBranch_F[25]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [25]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[25] .is_wysiwyg = "true";
+defparam \floprDevice|q[25] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N18
+cycloneive_lcell_comb \floprDevice|q[26]~110 (
+// Equation(s):
+// \floprDevice|q[26]~110_combout  = (\floprDevice|q [26] & (\floprDevice|q[25]~109  $ (GND))) # (!\floprDevice|q [26] & (!\floprDevice|q[25]~109  & VCC))
+// \floprDevice|q[26]~111  = CARRY((\floprDevice|q [26] & !\floprDevice|q[25]~109 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [26]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[25]~109 ),
+	.combout(\floprDevice|q[26]~110_combout ),
+	.cout(\floprDevice|q[26]~111 ));
+// synopsys translate_off
+defparam \floprDevice|q[26]~110 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[26]~110 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X9_Y34_N22
+cycloneive_io_ibuf \PCBranch_F[26]~input (
+	.i(PCBranch_F[26]),
+	.ibar(gnd),
+	.o(\PCBranch_F[26]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[26]~input .bus_hold = "false";
+defparam \PCBranch_F[26]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N19
+dffeas \floprDevice|q[26] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[26]~110_combout ),
+	.asdata(\PCBranch_F[26]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [26]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[26] .is_wysiwyg = "true";
+defparam \floprDevice|q[26] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N20
+cycloneive_lcell_comb \floprDevice|q[27]~112 (
+// Equation(s):
+// \floprDevice|q[27]~112_combout  = (\floprDevice|q [27] & (!\floprDevice|q[26]~111 )) # (!\floprDevice|q [27] & ((\floprDevice|q[26]~111 ) # (GND)))
+// \floprDevice|q[27]~113  = CARRY((!\floprDevice|q[26]~111 ) # (!\floprDevice|q [27]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [27]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[26]~111 ),
+	.combout(\floprDevice|q[27]~112_combout ),
+	.cout(\floprDevice|q[27]~113 ));
+// synopsys translate_off
+defparam \floprDevice|q[27]~112 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[27]~112 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X40_Y34_N1
+cycloneive_io_ibuf \PCBranch_F[27]~input (
+	.i(PCBranch_F[27]),
+	.ibar(gnd),
+	.o(\PCBranch_F[27]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[27]~input .bus_hold = "false";
+defparam \PCBranch_F[27]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N21
+dffeas \floprDevice|q[27] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[27]~112_combout ),
+	.asdata(\PCBranch_F[27]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [27]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[27] .is_wysiwyg = "true";
+defparam \floprDevice|q[27] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N22
+cycloneive_lcell_comb \floprDevice|q[28]~114 (
+// Equation(s):
+// \floprDevice|q[28]~114_combout  = (\floprDevice|q [28] & (\floprDevice|q[27]~113  $ (GND))) # (!\floprDevice|q [28] & (!\floprDevice|q[27]~113  & VCC))
+// \floprDevice|q[28]~115  = CARRY((\floprDevice|q [28] & !\floprDevice|q[27]~113 ))
+
+	.dataa(\floprDevice|q [28]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[27]~113 ),
+	.combout(\floprDevice|q[28]~114_combout ),
+	.cout(\floprDevice|q[28]~115 ));
+// synopsys translate_off
+defparam \floprDevice|q[28]~114 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[28]~114 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y34_N8
+cycloneive_io_ibuf \PCBranch_F[28]~input (
+	.i(PCBranch_F[28]),
+	.ibar(gnd),
+	.o(\PCBranch_F[28]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[28]~input .bus_hold = "false";
+defparam \PCBranch_F[28]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N23
+dffeas \floprDevice|q[28] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[28]~114_combout ),
+	.asdata(\PCBranch_F[28]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [28]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[28] .is_wysiwyg = "true";
+defparam \floprDevice|q[28] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N24
+cycloneive_lcell_comb \floprDevice|q[29]~116 (
+// Equation(s):
+// \floprDevice|q[29]~116_combout  = (\floprDevice|q [29] & (!\floprDevice|q[28]~115 )) # (!\floprDevice|q [29] & ((\floprDevice|q[28]~115 ) # (GND)))
+// \floprDevice|q[29]~117  = CARRY((!\floprDevice|q[28]~115 ) # (!\floprDevice|q [29]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [29]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[28]~115 ),
+	.combout(\floprDevice|q[29]~116_combout ),
+	.cout(\floprDevice|q[29]~117 ));
+// synopsys translate_off
+defparam \floprDevice|q[29]~116 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[29]~116 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y6_N15
+cycloneive_io_ibuf \PCBranch_F[29]~input (
+	.i(PCBranch_F[29]),
+	.ibar(gnd),
+	.o(\PCBranch_F[29]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[29]~input .bus_hold = "false";
+defparam \PCBranch_F[29]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N25
+dffeas \floprDevice|q[29] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[29]~116_combout ),
+	.asdata(\PCBranch_F[29]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [29]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[29] .is_wysiwyg = "true";
+defparam \floprDevice|q[29] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N26
+cycloneive_lcell_comb \floprDevice|q[30]~118 (
+// Equation(s):
+// \floprDevice|q[30]~118_combout  = (\floprDevice|q [30] & (\floprDevice|q[29]~117  $ (GND))) # (!\floprDevice|q [30] & (!\floprDevice|q[29]~117  & VCC))
+// \floprDevice|q[30]~119  = CARRY((\floprDevice|q [30] & !\floprDevice|q[29]~117 ))
+
+	.dataa(\floprDevice|q [30]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[29]~117 ),
+	.combout(\floprDevice|q[30]~118_combout ),
+	.cout(\floprDevice|q[30]~119 ));
+// synopsys translate_off
+defparam \floprDevice|q[30]~118 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[30]~118 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X7_Y34_N15
+cycloneive_io_ibuf \PCBranch_F[30]~input (
+	.i(PCBranch_F[30]),
+	.ibar(gnd),
+	.o(\PCBranch_F[30]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[30]~input .bus_hold = "false";
+defparam \PCBranch_F[30]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N27
+dffeas \floprDevice|q[30] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[30]~118_combout ),
+	.asdata(\PCBranch_F[30]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [30]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[30] .is_wysiwyg = "true";
+defparam \floprDevice|q[30] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N28
+cycloneive_lcell_comb \floprDevice|q[31]~120 (
+// Equation(s):
+// \floprDevice|q[31]~120_combout  = (\floprDevice|q [31] & (!\floprDevice|q[30]~119 )) # (!\floprDevice|q [31] & ((\floprDevice|q[30]~119 ) # (GND)))
+// \floprDevice|q[31]~121  = CARRY((!\floprDevice|q[30]~119 ) # (!\floprDevice|q [31]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [31]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[30]~119 ),
+	.combout(\floprDevice|q[31]~120_combout ),
+	.cout(\floprDevice|q[31]~121 ));
+// synopsys translate_off
+defparam \floprDevice|q[31]~120 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[31]~120 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X36_Y0_N15
+cycloneive_io_ibuf \PCBranch_F[31]~input (
+	.i(PCBranch_F[31]),
+	.ibar(gnd),
+	.o(\PCBranch_F[31]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[31]~input .bus_hold = "false";
+defparam \PCBranch_F[31]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N29
+dffeas \floprDevice|q[31] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[31]~120_combout ),
+	.asdata(\PCBranch_F[31]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [31]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[31] .is_wysiwyg = "true";
+defparam \floprDevice|q[31] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y22_N30
+cycloneive_lcell_comb \floprDevice|q[32]~122 (
+// Equation(s):
+// \floprDevice|q[32]~122_combout  = (\floprDevice|q [32] & (\floprDevice|q[31]~121  $ (GND))) # (!\floprDevice|q [32] & (!\floprDevice|q[31]~121  & VCC))
+// \floprDevice|q[32]~123  = CARRY((\floprDevice|q [32] & !\floprDevice|q[31]~121 ))
+
+	.dataa(\floprDevice|q [32]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[31]~121 ),
+	.combout(\floprDevice|q[32]~122_combout ),
+	.cout(\floprDevice|q[32]~123 ));
+// synopsys translate_off
+defparam \floprDevice|q[32]~122 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[32]~122 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y26_N22
+cycloneive_io_ibuf \PCBranch_F[32]~input (
+	.i(PCBranch_F[32]),
+	.ibar(gnd),
+	.o(\PCBranch_F[32]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[32]~input .bus_hold = "false";
+defparam \PCBranch_F[32]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y22_N31
+dffeas \floprDevice|q[32] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[32]~122_combout ),
+	.asdata(\PCBranch_F[32]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [32]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[32] .is_wysiwyg = "true";
+defparam \floprDevice|q[32] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N0
+cycloneive_lcell_comb \floprDevice|q[33]~124 (
+// Equation(s):
+// \floprDevice|q[33]~124_combout  = (\floprDevice|q [33] & (!\floprDevice|q[32]~123 )) # (!\floprDevice|q [33] & ((\floprDevice|q[32]~123 ) # (GND)))
+// \floprDevice|q[33]~125  = CARRY((!\floprDevice|q[32]~123 ) # (!\floprDevice|q [33]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [33]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[32]~123 ),
+	.combout(\floprDevice|q[33]~124_combout ),
+	.cout(\floprDevice|q[33]~125 ));
+// synopsys translate_off
+defparam \floprDevice|q[33]~124 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[33]~124 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y24_N22
+cycloneive_io_ibuf \PCBranch_F[33]~input (
+	.i(PCBranch_F[33]),
+	.ibar(gnd),
+	.o(\PCBranch_F[33]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[33]~input .bus_hold = "false";
+defparam \PCBranch_F[33]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N1
+dffeas \floprDevice|q[33] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[33]~124_combout ),
+	.asdata(\PCBranch_F[33]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [33]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[33] .is_wysiwyg = "true";
+defparam \floprDevice|q[33] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N2
+cycloneive_lcell_comb \floprDevice|q[34]~126 (
+// Equation(s):
+// \floprDevice|q[34]~126_combout  = (\floprDevice|q [34] & (\floprDevice|q[33]~125  $ (GND))) # (!\floprDevice|q [34] & (!\floprDevice|q[33]~125  & VCC))
+// \floprDevice|q[34]~127  = CARRY((\floprDevice|q [34] & !\floprDevice|q[33]~125 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [34]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[33]~125 ),
+	.combout(\floprDevice|q[34]~126_combout ),
+	.cout(\floprDevice|q[34]~127 ));
+// synopsys translate_off
+defparam \floprDevice|q[34]~126 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[34]~126 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y7_N8
+cycloneive_io_ibuf \PCBranch_F[34]~input (
+	.i(PCBranch_F[34]),
+	.ibar(gnd),
+	.o(\PCBranch_F[34]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[34]~input .bus_hold = "false";
+defparam \PCBranch_F[34]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N3
+dffeas \floprDevice|q[34] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[34]~126_combout ),
+	.asdata(\PCBranch_F[34]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [34]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[34] .is_wysiwyg = "true";
+defparam \floprDevice|q[34] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N4
+cycloneive_lcell_comb \floprDevice|q[35]~128 (
+// Equation(s):
+// \floprDevice|q[35]~128_combout  = (\floprDevice|q [35] & (!\floprDevice|q[34]~127 )) # (!\floprDevice|q [35] & ((\floprDevice|q[34]~127 ) # (GND)))
+// \floprDevice|q[35]~129  = CARRY((!\floprDevice|q[34]~127 ) # (!\floprDevice|q [35]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [35]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[34]~127 ),
+	.combout(\floprDevice|q[35]~128_combout ),
+	.cout(\floprDevice|q[35]~129 ));
+// synopsys translate_off
+defparam \floprDevice|q[35]~128 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[35]~128 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X38_Y0_N1
+cycloneive_io_ibuf \PCBranch_F[35]~input (
+	.i(PCBranch_F[35]),
+	.ibar(gnd),
+	.o(\PCBranch_F[35]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[35]~input .bus_hold = "false";
+defparam \PCBranch_F[35]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N5
+dffeas \floprDevice|q[35] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[35]~128_combout ),
+	.asdata(\PCBranch_F[35]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [35]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[35] .is_wysiwyg = "true";
+defparam \floprDevice|q[35] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N6
+cycloneive_lcell_comb \floprDevice|q[36]~130 (
+// Equation(s):
+// \floprDevice|q[36]~130_combout  = (\floprDevice|q [36] & (\floprDevice|q[35]~129  $ (GND))) # (!\floprDevice|q [36] & (!\floprDevice|q[35]~129  & VCC))
+// \floprDevice|q[36]~131  = CARRY((\floprDevice|q [36] & !\floprDevice|q[35]~129 ))
+
+	.dataa(\floprDevice|q [36]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[35]~129 ),
+	.combout(\floprDevice|q[36]~130_combout ),
+	.cout(\floprDevice|q[36]~131 ));
+// synopsys translate_off
+defparam \floprDevice|q[36]~130 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[36]~130 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y11_N1
+cycloneive_io_ibuf \PCBranch_F[36]~input (
+	.i(PCBranch_F[36]),
+	.ibar(gnd),
+	.o(\PCBranch_F[36]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[36]~input .bus_hold = "false";
+defparam \PCBranch_F[36]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N7
+dffeas \floprDevice|q[36] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[36]~130_combout ),
+	.asdata(\PCBranch_F[36]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [36]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[36] .is_wysiwyg = "true";
+defparam \floprDevice|q[36] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N8
+cycloneive_lcell_comb \floprDevice|q[37]~132 (
+// Equation(s):
+// \floprDevice|q[37]~132_combout  = (\floprDevice|q [37] & (!\floprDevice|q[36]~131 )) # (!\floprDevice|q [37] & ((\floprDevice|q[36]~131 ) # (GND)))
+// \floprDevice|q[37]~133  = CARRY((!\floprDevice|q[36]~131 ) # (!\floprDevice|q [37]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [37]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[36]~131 ),
+	.combout(\floprDevice|q[37]~132_combout ),
+	.cout(\floprDevice|q[37]~133 ));
+// synopsys translate_off
+defparam \floprDevice|q[37]~132 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[37]~132 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y8_N22
+cycloneive_io_ibuf \PCBranch_F[37]~input (
+	.i(PCBranch_F[37]),
+	.ibar(gnd),
+	.o(\PCBranch_F[37]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[37]~input .bus_hold = "false";
+defparam \PCBranch_F[37]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N9
+dffeas \floprDevice|q[37] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[37]~132_combout ),
+	.asdata(\PCBranch_F[37]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [37]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[37] .is_wysiwyg = "true";
+defparam \floprDevice|q[37] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N10
+cycloneive_lcell_comb \floprDevice|q[38]~134 (
+// Equation(s):
+// \floprDevice|q[38]~134_combout  = (\floprDevice|q [38] & (\floprDevice|q[37]~133  $ (GND))) # (!\floprDevice|q [38] & (!\floprDevice|q[37]~133  & VCC))
+// \floprDevice|q[38]~135  = CARRY((\floprDevice|q [38] & !\floprDevice|q[37]~133 ))
+
+	.dataa(\floprDevice|q [38]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[37]~133 ),
+	.combout(\floprDevice|q[38]~134_combout ),
+	.cout(\floprDevice|q[38]~135 ));
+// synopsys translate_off
+defparam \floprDevice|q[38]~134 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[38]~134 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y20_N22
+cycloneive_io_ibuf \PCBranch_F[38]~input (
+	.i(PCBranch_F[38]),
+	.ibar(gnd),
+	.o(\PCBranch_F[38]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[38]~input .bus_hold = "false";
+defparam \PCBranch_F[38]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N11
+dffeas \floprDevice|q[38] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[38]~134_combout ),
+	.asdata(\PCBranch_F[38]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [38]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[38] .is_wysiwyg = "true";
+defparam \floprDevice|q[38] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N12
+cycloneive_lcell_comb \floprDevice|q[39]~136 (
+// Equation(s):
+// \floprDevice|q[39]~136_combout  = (\floprDevice|q [39] & (!\floprDevice|q[38]~135 )) # (!\floprDevice|q [39] & ((\floprDevice|q[38]~135 ) # (GND)))
+// \floprDevice|q[39]~137  = CARRY((!\floprDevice|q[38]~135 ) # (!\floprDevice|q [39]))
+
+	.dataa(\floprDevice|q [39]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[38]~135 ),
+	.combout(\floprDevice|q[39]~136_combout ),
+	.cout(\floprDevice|q[39]~137 ));
+// synopsys translate_off
+defparam \floprDevice|q[39]~136 .lut_mask = 16'h5A5F;
+defparam \floprDevice|q[39]~136 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y10_N15
+cycloneive_io_ibuf \PCBranch_F[39]~input (
+	.i(PCBranch_F[39]),
+	.ibar(gnd),
+	.o(\PCBranch_F[39]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[39]~input .bus_hold = "false";
+defparam \PCBranch_F[39]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N13
+dffeas \floprDevice|q[39] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[39]~136_combout ),
+	.asdata(\PCBranch_F[39]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [39]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[39] .is_wysiwyg = "true";
+defparam \floprDevice|q[39] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N14
+cycloneive_lcell_comb \floprDevice|q[40]~138 (
+// Equation(s):
+// \floprDevice|q[40]~138_combout  = (\floprDevice|q [40] & (\floprDevice|q[39]~137  $ (GND))) # (!\floprDevice|q [40] & (!\floprDevice|q[39]~137  & VCC))
+// \floprDevice|q[40]~139  = CARRY((\floprDevice|q [40] & !\floprDevice|q[39]~137 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [40]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[39]~137 ),
+	.combout(\floprDevice|q[40]~138_combout ),
+	.cout(\floprDevice|q[40]~139 ));
+// synopsys translate_off
+defparam \floprDevice|q[40]~138 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[40]~138 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X36_Y0_N8
+cycloneive_io_ibuf \PCBranch_F[40]~input (
+	.i(PCBranch_F[40]),
+	.ibar(gnd),
+	.o(\PCBranch_F[40]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[40]~input .bus_hold = "false";
+defparam \PCBranch_F[40]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N15
+dffeas \floprDevice|q[40] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[40]~138_combout ),
+	.asdata(\PCBranch_F[40]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [40]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[40] .is_wysiwyg = "true";
+defparam \floprDevice|q[40] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N16
+cycloneive_lcell_comb \floprDevice|q[41]~140 (
+// Equation(s):
+// \floprDevice|q[41]~140_combout  = (\floprDevice|q [41] & (!\floprDevice|q[40]~139 )) # (!\floprDevice|q [41] & ((\floprDevice|q[40]~139 ) # (GND)))
+// \floprDevice|q[41]~141  = CARRY((!\floprDevice|q[40]~139 ) # (!\floprDevice|q [41]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [41]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[40]~139 ),
+	.combout(\floprDevice|q[41]~140_combout ),
+	.cout(\floprDevice|q[41]~141 ));
+// synopsys translate_off
+defparam \floprDevice|q[41]~140 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[41]~140 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y9_N22
+cycloneive_io_ibuf \PCBranch_F[41]~input (
+	.i(PCBranch_F[41]),
+	.ibar(gnd),
+	.o(\PCBranch_F[41]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[41]~input .bus_hold = "false";
+defparam \PCBranch_F[41]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N17
+dffeas \floprDevice|q[41] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[41]~140_combout ),
+	.asdata(\PCBranch_F[41]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [41]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[41] .is_wysiwyg = "true";
+defparam \floprDevice|q[41] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N18
+cycloneive_lcell_comb \floprDevice|q[42]~142 (
+// Equation(s):
+// \floprDevice|q[42]~142_combout  = (\floprDevice|q [42] & (\floprDevice|q[41]~141  $ (GND))) # (!\floprDevice|q [42] & (!\floprDevice|q[41]~141  & VCC))
+// \floprDevice|q[42]~143  = CARRY((\floprDevice|q [42] & !\floprDevice|q[41]~141 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [42]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[41]~141 ),
+	.combout(\floprDevice|q[42]~142_combout ),
+	.cout(\floprDevice|q[42]~143 ));
+// synopsys translate_off
+defparam \floprDevice|q[42]~142 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[42]~142 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y9_N8
+cycloneive_io_ibuf \PCBranch_F[42]~input (
+	.i(PCBranch_F[42]),
+	.ibar(gnd),
+	.o(\PCBranch_F[42]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[42]~input .bus_hold = "false";
+defparam \PCBranch_F[42]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N19
+dffeas \floprDevice|q[42] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[42]~142_combout ),
+	.asdata(\PCBranch_F[42]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [42]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[42] .is_wysiwyg = "true";
+defparam \floprDevice|q[42] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N20
+cycloneive_lcell_comb \floprDevice|q[43]~144 (
+// Equation(s):
+// \floprDevice|q[43]~144_combout  = (\floprDevice|q [43] & (!\floprDevice|q[42]~143 )) # (!\floprDevice|q [43] & ((\floprDevice|q[42]~143 ) # (GND)))
+// \floprDevice|q[43]~145  = CARRY((!\floprDevice|q[42]~143 ) # (!\floprDevice|q [43]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [43]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[42]~143 ),
+	.combout(\floprDevice|q[43]~144_combout ),
+	.cout(\floprDevice|q[43]~145 ));
+// synopsys translate_off
+defparam \floprDevice|q[43]~144 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[43]~144 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y4_N15
+cycloneive_io_ibuf \PCBranch_F[43]~input (
+	.i(PCBranch_F[43]),
+	.ibar(gnd),
+	.o(\PCBranch_F[43]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[43]~input .bus_hold = "false";
+defparam \PCBranch_F[43]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N21
+dffeas \floprDevice|q[43] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[43]~144_combout ),
+	.asdata(\PCBranch_F[43]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [43]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[43] .is_wysiwyg = "true";
+defparam \floprDevice|q[43] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N22
+cycloneive_lcell_comb \floprDevice|q[44]~146 (
+// Equation(s):
+// \floprDevice|q[44]~146_combout  = (\floprDevice|q [44] & (\floprDevice|q[43]~145  $ (GND))) # (!\floprDevice|q [44] & (!\floprDevice|q[43]~145  & VCC))
+// \floprDevice|q[44]~147  = CARRY((\floprDevice|q [44] & !\floprDevice|q[43]~145 ))
+
+	.dataa(\floprDevice|q [44]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[43]~145 ),
+	.combout(\floprDevice|q[44]~146_combout ),
+	.cout(\floprDevice|q[44]~147 ));
+// synopsys translate_off
+defparam \floprDevice|q[44]~146 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[44]~146 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N22
+cycloneive_io_ibuf \PCBranch_F[44]~input (
+	.i(PCBranch_F[44]),
+	.ibar(gnd),
+	.o(\PCBranch_F[44]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[44]~input .bus_hold = "false";
+defparam \PCBranch_F[44]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N23
+dffeas \floprDevice|q[44] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[44]~146_combout ),
+	.asdata(\PCBranch_F[44]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [44]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[44] .is_wysiwyg = "true";
+defparam \floprDevice|q[44] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N24
+cycloneive_lcell_comb \floprDevice|q[45]~148 (
+// Equation(s):
+// \floprDevice|q[45]~148_combout  = (\floprDevice|q [45] & (!\floprDevice|q[44]~147 )) # (!\floprDevice|q [45] & ((\floprDevice|q[44]~147 ) # (GND)))
+// \floprDevice|q[45]~149  = CARRY((!\floprDevice|q[44]~147 ) # (!\floprDevice|q [45]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [45]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[44]~147 ),
+	.combout(\floprDevice|q[45]~148_combout ),
+	.cout(\floprDevice|q[45]~149 ));
+// synopsys translate_off
+defparam \floprDevice|q[45]~148 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[45]~148 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y24_N15
+cycloneive_io_ibuf \PCBranch_F[45]~input (
+	.i(PCBranch_F[45]),
+	.ibar(gnd),
+	.o(\PCBranch_F[45]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[45]~input .bus_hold = "false";
+defparam \PCBranch_F[45]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N25
+dffeas \floprDevice|q[45] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[45]~148_combout ),
+	.asdata(\PCBranch_F[45]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [45]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[45] .is_wysiwyg = "true";
+defparam \floprDevice|q[45] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N26
+cycloneive_lcell_comb \floprDevice|q[46]~150 (
+// Equation(s):
+// \floprDevice|q[46]~150_combout  = (\floprDevice|q [46] & (\floprDevice|q[45]~149  $ (GND))) # (!\floprDevice|q [46] & (!\floprDevice|q[45]~149  & VCC))
+// \floprDevice|q[46]~151  = CARRY((\floprDevice|q [46] & !\floprDevice|q[45]~149 ))
+
+	.dataa(\floprDevice|q [46]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[45]~149 ),
+	.combout(\floprDevice|q[46]~150_combout ),
+	.cout(\floprDevice|q[46]~151 ));
+// synopsys translate_off
+defparam \floprDevice|q[46]~150 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[46]~150 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y5_N22
+cycloneive_io_ibuf \PCBranch_F[46]~input (
+	.i(PCBranch_F[46]),
+	.ibar(gnd),
+	.o(\PCBranch_F[46]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[46]~input .bus_hold = "false";
+defparam \PCBranch_F[46]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N27
+dffeas \floprDevice|q[46] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[46]~150_combout ),
+	.asdata(\PCBranch_F[46]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [46]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[46] .is_wysiwyg = "true";
+defparam \floprDevice|q[46] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N28
+cycloneive_lcell_comb \floprDevice|q[47]~152 (
+// Equation(s):
+// \floprDevice|q[47]~152_combout  = (\floprDevice|q [47] & (!\floprDevice|q[46]~151 )) # (!\floprDevice|q [47] & ((\floprDevice|q[46]~151 ) # (GND)))
+// \floprDevice|q[47]~153  = CARRY((!\floprDevice|q[46]~151 ) # (!\floprDevice|q [47]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [47]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[46]~151 ),
+	.combout(\floprDevice|q[47]~152_combout ),
+	.cout(\floprDevice|q[47]~153 ));
+// synopsys translate_off
+defparam \floprDevice|q[47]~152 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[47]~152 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y11_N1
+cycloneive_io_ibuf \PCBranch_F[47]~input (
+	.i(PCBranch_F[47]),
+	.ibar(gnd),
+	.o(\PCBranch_F[47]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[47]~input .bus_hold = "false";
+defparam \PCBranch_F[47]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N29
+dffeas \floprDevice|q[47] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[47]~152_combout ),
+	.asdata(\PCBranch_F[47]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [47]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[47] .is_wysiwyg = "true";
+defparam \floprDevice|q[47] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y21_N30
+cycloneive_lcell_comb \floprDevice|q[48]~154 (
+// Equation(s):
+// \floprDevice|q[48]~154_combout  = (\floprDevice|q [48] & (\floprDevice|q[47]~153  $ (GND))) # (!\floprDevice|q [48] & (!\floprDevice|q[47]~153  & VCC))
+// \floprDevice|q[48]~155  = CARRY((\floprDevice|q [48] & !\floprDevice|q[47]~153 ))
+
+	.dataa(\floprDevice|q [48]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[47]~153 ),
+	.combout(\floprDevice|q[48]~154_combout ),
+	.cout(\floprDevice|q[48]~155 ));
+// synopsys translate_off
+defparam \floprDevice|q[48]~154 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[48]~154 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y15_N8
+cycloneive_io_ibuf \PCBranch_F[48]~input (
+	.i(PCBranch_F[48]),
+	.ibar(gnd),
+	.o(\PCBranch_F[48]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[48]~input .bus_hold = "false";
+defparam \PCBranch_F[48]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y21_N31
+dffeas \floprDevice|q[48] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[48]~154_combout ),
+	.asdata(\PCBranch_F[48]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [48]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[48] .is_wysiwyg = "true";
+defparam \floprDevice|q[48] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N0
+cycloneive_lcell_comb \floprDevice|q[49]~156 (
+// Equation(s):
+// \floprDevice|q[49]~156_combout  = (\floprDevice|q [49] & (!\floprDevice|q[48]~155 )) # (!\floprDevice|q [49] & ((\floprDevice|q[48]~155 ) # (GND)))
+// \floprDevice|q[49]~157  = CARRY((!\floprDevice|q[48]~155 ) # (!\floprDevice|q [49]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [49]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[48]~155 ),
+	.combout(\floprDevice|q[49]~156_combout ),
+	.cout(\floprDevice|q[49]~157 ));
+// synopsys translate_off
+defparam \floprDevice|q[49]~156 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[49]~156 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X16_Y0_N15
+cycloneive_io_ibuf \PCBranch_F[49]~input (
+	.i(PCBranch_F[49]),
+	.ibar(gnd),
+	.o(\PCBranch_F[49]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[49]~input .bus_hold = "false";
+defparam \PCBranch_F[49]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N1
+dffeas \floprDevice|q[49] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[49]~156_combout ),
+	.asdata(\PCBranch_F[49]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [49]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[49] .is_wysiwyg = "true";
+defparam \floprDevice|q[49] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N2
+cycloneive_lcell_comb \floprDevice|q[50]~158 (
+// Equation(s):
+// \floprDevice|q[50]~158_combout  = (\floprDevice|q [50] & (\floprDevice|q[49]~157  $ (GND))) # (!\floprDevice|q [50] & (!\floprDevice|q[49]~157  & VCC))
+// \floprDevice|q[50]~159  = CARRY((\floprDevice|q [50] & !\floprDevice|q[49]~157 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [50]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[49]~157 ),
+	.combout(\floprDevice|q[50]~158_combout ),
+	.cout(\floprDevice|q[50]~159 ));
+// synopsys translate_off
+defparam \floprDevice|q[50]~158 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[50]~158 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X29_Y0_N1
+cycloneive_io_ibuf \PCBranch_F[50]~input (
+	.i(PCBranch_F[50]),
+	.ibar(gnd),
+	.o(\PCBranch_F[50]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[50]~input .bus_hold = "false";
+defparam \PCBranch_F[50]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N3
+dffeas \floprDevice|q[50] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[50]~158_combout ),
+	.asdata(\PCBranch_F[50]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [50]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[50] .is_wysiwyg = "true";
+defparam \floprDevice|q[50] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N4
+cycloneive_lcell_comb \floprDevice|q[51]~160 (
+// Equation(s):
+// \floprDevice|q[51]~160_combout  = (\floprDevice|q [51] & (!\floprDevice|q[50]~159 )) # (!\floprDevice|q [51] & ((\floprDevice|q[50]~159 ) # (GND)))
+// \floprDevice|q[51]~161  = CARRY((!\floprDevice|q[50]~159 ) # (!\floprDevice|q [51]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [51]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[50]~159 ),
+	.combout(\floprDevice|q[51]~160_combout ),
+	.cout(\floprDevice|q[51]~161 ));
+// synopsys translate_off
+defparam \floprDevice|q[51]~160 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[51]~160 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y8_N22
+cycloneive_io_ibuf \PCBranch_F[51]~input (
+	.i(PCBranch_F[51]),
+	.ibar(gnd),
+	.o(\PCBranch_F[51]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[51]~input .bus_hold = "false";
+defparam \PCBranch_F[51]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N5
+dffeas \floprDevice|q[51] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[51]~160_combout ),
+	.asdata(\PCBranch_F[51]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [51]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[51] .is_wysiwyg = "true";
+defparam \floprDevice|q[51] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N6
+cycloneive_lcell_comb \floprDevice|q[52]~162 (
+// Equation(s):
+// \floprDevice|q[52]~162_combout  = (\floprDevice|q [52] & (\floprDevice|q[51]~161  $ (GND))) # (!\floprDevice|q [52] & (!\floprDevice|q[51]~161  & VCC))
+// \floprDevice|q[52]~163  = CARRY((\floprDevice|q [52] & !\floprDevice|q[51]~161 ))
+
+	.dataa(\floprDevice|q [52]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[51]~161 ),
+	.combout(\floprDevice|q[52]~162_combout ),
+	.cout(\floprDevice|q[52]~163 ));
+// synopsys translate_off
+defparam \floprDevice|q[52]~162 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[52]~162 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y20_N15
+cycloneive_io_ibuf \PCBranch_F[52]~input (
+	.i(PCBranch_F[52]),
+	.ibar(gnd),
+	.o(\PCBranch_F[52]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[52]~input .bus_hold = "false";
+defparam \PCBranch_F[52]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N7
+dffeas \floprDevice|q[52] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[52]~162_combout ),
+	.asdata(\PCBranch_F[52]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [52]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[52] .is_wysiwyg = "true";
+defparam \floprDevice|q[52] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N8
+cycloneive_lcell_comb \floprDevice|q[53]~164 (
+// Equation(s):
+// \floprDevice|q[53]~164_combout  = (\floprDevice|q [53] & (!\floprDevice|q[52]~163 )) # (!\floprDevice|q [53] & ((\floprDevice|q[52]~163 ) # (GND)))
+// \floprDevice|q[53]~165  = CARRY((!\floprDevice|q[52]~163 ) # (!\floprDevice|q [53]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [53]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[52]~163 ),
+	.combout(\floprDevice|q[53]~164_combout ),
+	.cout(\floprDevice|q[53]~165 ));
+// synopsys translate_off
+defparam \floprDevice|q[53]~164 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[53]~164 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X16_Y0_N22
+cycloneive_io_ibuf \PCBranch_F[53]~input (
+	.i(PCBranch_F[53]),
+	.ibar(gnd),
+	.o(\PCBranch_F[53]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[53]~input .bus_hold = "false";
+defparam \PCBranch_F[53]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N9
+dffeas \floprDevice|q[53] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[53]~164_combout ),
+	.asdata(\PCBranch_F[53]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [53]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[53] .is_wysiwyg = "true";
+defparam \floprDevice|q[53] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N10
+cycloneive_lcell_comb \floprDevice|q[54]~166 (
+// Equation(s):
+// \floprDevice|q[54]~166_combout  = (\floprDevice|q [54] & (\floprDevice|q[53]~165  $ (GND))) # (!\floprDevice|q [54] & (!\floprDevice|q[53]~165  & VCC))
+// \floprDevice|q[54]~167  = CARRY((\floprDevice|q [54] & !\floprDevice|q[53]~165 ))
+
+	.dataa(\floprDevice|q [54]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[53]~165 ),
+	.combout(\floprDevice|q[54]~166_combout ),
+	.cout(\floprDevice|q[54]~167 ));
+// synopsys translate_off
+defparam \floprDevice|q[54]~166 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[54]~166 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X25_Y0_N15
+cycloneive_io_ibuf \PCBranch_F[54]~input (
+	.i(PCBranch_F[54]),
+	.ibar(gnd),
+	.o(\PCBranch_F[54]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[54]~input .bus_hold = "false";
+defparam \PCBranch_F[54]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N11
+dffeas \floprDevice|q[54] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[54]~166_combout ),
+	.asdata(\PCBranch_F[54]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [54]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[54] .is_wysiwyg = "true";
+defparam \floprDevice|q[54] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N12
+cycloneive_lcell_comb \floprDevice|q[55]~168 (
+// Equation(s):
+// \floprDevice|q[55]~168_combout  = (\floprDevice|q [55] & (!\floprDevice|q[54]~167 )) # (!\floprDevice|q [55] & ((\floprDevice|q[54]~167 ) # (GND)))
+// \floprDevice|q[55]~169  = CARRY((!\floprDevice|q[54]~167 ) # (!\floprDevice|q [55]))
+
+	.dataa(\floprDevice|q [55]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[54]~167 ),
+	.combout(\floprDevice|q[55]~168_combout ),
+	.cout(\floprDevice|q[55]~169 ));
+// synopsys translate_off
+defparam \floprDevice|q[55]~168 .lut_mask = 16'h5A5F;
+defparam \floprDevice|q[55]~168 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y12_N1
+cycloneive_io_ibuf \PCBranch_F[55]~input (
+	.i(PCBranch_F[55]),
+	.ibar(gnd),
+	.o(\PCBranch_F[55]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[55]~input .bus_hold = "false";
+defparam \PCBranch_F[55]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N13
+dffeas \floprDevice|q[55] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[55]~168_combout ),
+	.asdata(\PCBranch_F[55]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [55]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[55] .is_wysiwyg = "true";
+defparam \floprDevice|q[55] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N14
+cycloneive_lcell_comb \floprDevice|q[56]~170 (
+// Equation(s):
+// \floprDevice|q[56]~170_combout  = (\floprDevice|q [56] & (\floprDevice|q[55]~169  $ (GND))) # (!\floprDevice|q [56] & (!\floprDevice|q[55]~169  & VCC))
+// \floprDevice|q[56]~171  = CARRY((\floprDevice|q [56] & !\floprDevice|q[55]~169 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [56]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[55]~169 ),
+	.combout(\floprDevice|q[56]~170_combout ),
+	.cout(\floprDevice|q[56]~171 ));
+// synopsys translate_off
+defparam \floprDevice|q[56]~170 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[56]~170 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X11_Y0_N15
+cycloneive_io_ibuf \PCBranch_F[56]~input (
+	.i(PCBranch_F[56]),
+	.ibar(gnd),
+	.o(\PCBranch_F[56]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[56]~input .bus_hold = "false";
+defparam \PCBranch_F[56]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N15
+dffeas \floprDevice|q[56] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[56]~170_combout ),
+	.asdata(\PCBranch_F[56]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [56]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[56] .is_wysiwyg = "true";
+defparam \floprDevice|q[56] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N16
+cycloneive_lcell_comb \floprDevice|q[57]~172 (
+// Equation(s):
+// \floprDevice|q[57]~172_combout  = (\floprDevice|q [57] & (!\floprDevice|q[56]~171 )) # (!\floprDevice|q [57] & ((\floprDevice|q[56]~171 ) # (GND)))
+// \floprDevice|q[57]~173  = CARRY((!\floprDevice|q[56]~171 ) # (!\floprDevice|q [57]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [57]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[56]~171 ),
+	.combout(\floprDevice|q[57]~172_combout ),
+	.cout(\floprDevice|q[57]~173 ));
+// synopsys translate_off
+defparam \floprDevice|q[57]~172 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[57]~172 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X38_Y0_N8
+cycloneive_io_ibuf \PCBranch_F[57]~input (
+	.i(PCBranch_F[57]),
+	.ibar(gnd),
+	.o(\PCBranch_F[57]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[57]~input .bus_hold = "false";
+defparam \PCBranch_F[57]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N17
+dffeas \floprDevice|q[57] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[57]~172_combout ),
+	.asdata(\PCBranch_F[57]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [57]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[57] .is_wysiwyg = "true";
+defparam \floprDevice|q[57] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N18
+cycloneive_lcell_comb \floprDevice|q[58]~174 (
+// Equation(s):
+// \floprDevice|q[58]~174_combout  = (\floprDevice|q [58] & (\floprDevice|q[57]~173  $ (GND))) # (!\floprDevice|q [58] & (!\floprDevice|q[57]~173  & VCC))
+// \floprDevice|q[58]~175  = CARRY((\floprDevice|q [58] & !\floprDevice|q[57]~173 ))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [58]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[57]~173 ),
+	.combout(\floprDevice|q[58]~174_combout ),
+	.cout(\floprDevice|q[58]~175 ));
+// synopsys translate_off
+defparam \floprDevice|q[58]~174 .lut_mask = 16'hC30C;
+defparam \floprDevice|q[58]~174 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y16_N8
+cycloneive_io_ibuf \PCBranch_F[58]~input (
+	.i(PCBranch_F[58]),
+	.ibar(gnd),
+	.o(\PCBranch_F[58]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[58]~input .bus_hold = "false";
+defparam \PCBranch_F[58]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N19
+dffeas \floprDevice|q[58] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[58]~174_combout ),
+	.asdata(\PCBranch_F[58]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [58]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[58] .is_wysiwyg = "true";
+defparam \floprDevice|q[58] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N20
+cycloneive_lcell_comb \floprDevice|q[59]~176 (
+// Equation(s):
+// \floprDevice|q[59]~176_combout  = (\floprDevice|q [59] & (!\floprDevice|q[58]~175 )) # (!\floprDevice|q [59] & ((\floprDevice|q[58]~175 ) # (GND)))
+// \floprDevice|q[59]~177  = CARRY((!\floprDevice|q[58]~175 ) # (!\floprDevice|q [59]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [59]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[58]~175 ),
+	.combout(\floprDevice|q[59]~176_combout ),
+	.cout(\floprDevice|q[59]~177 ));
+// synopsys translate_off
+defparam \floprDevice|q[59]~176 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[59]~176 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X18_Y0_N22
+cycloneive_io_ibuf \PCBranch_F[59]~input (
+	.i(PCBranch_F[59]),
+	.ibar(gnd),
+	.o(\PCBranch_F[59]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[59]~input .bus_hold = "false";
+defparam \PCBranch_F[59]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N21
+dffeas \floprDevice|q[59] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[59]~176_combout ),
+	.asdata(\PCBranch_F[59]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [59]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[59] .is_wysiwyg = "true";
+defparam \floprDevice|q[59] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N22
+cycloneive_lcell_comb \floprDevice|q[60]~178 (
+// Equation(s):
+// \floprDevice|q[60]~178_combout  = (\floprDevice|q [60] & (\floprDevice|q[59]~177  $ (GND))) # (!\floprDevice|q [60] & (!\floprDevice|q[59]~177  & VCC))
+// \floprDevice|q[60]~179  = CARRY((\floprDevice|q [60] & !\floprDevice|q[59]~177 ))
+
+	.dataa(\floprDevice|q [60]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[59]~177 ),
+	.combout(\floprDevice|q[60]~178_combout ),
+	.cout(\floprDevice|q[60]~179 ));
+// synopsys translate_off
+defparam \floprDevice|q[60]~178 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[60]~178 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X14_Y0_N22
+cycloneive_io_ibuf \PCBranch_F[60]~input (
+	.i(PCBranch_F[60]),
+	.ibar(gnd),
+	.o(\PCBranch_F[60]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[60]~input .bus_hold = "false";
+defparam \PCBranch_F[60]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N23
+dffeas \floprDevice|q[60] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[60]~178_combout ),
+	.asdata(\PCBranch_F[60]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [60]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[60] .is_wysiwyg = "true";
+defparam \floprDevice|q[60] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N24
+cycloneive_lcell_comb \floprDevice|q[61]~180 (
+// Equation(s):
+// \floprDevice|q[61]~180_combout  = (\floprDevice|q [61] & (!\floprDevice|q[60]~179 )) # (!\floprDevice|q [61] & ((\floprDevice|q[60]~179 ) # (GND)))
+// \floprDevice|q[61]~181  = CARRY((!\floprDevice|q[60]~179 ) # (!\floprDevice|q [61]))
+
+	.dataa(gnd),
+	.datab(\floprDevice|q [61]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[60]~179 ),
+	.combout(\floprDevice|q[61]~180_combout ),
+	.cout(\floprDevice|q[61]~181 ));
+// synopsys translate_off
+defparam \floprDevice|q[61]~180 .lut_mask = 16'h3C3F;
+defparam \floprDevice|q[61]~180 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y0_N1
+cycloneive_io_ibuf \PCBranch_F[61]~input (
+	.i(PCBranch_F[61]),
+	.ibar(gnd),
+	.o(\PCBranch_F[61]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[61]~input .bus_hold = "false";
+defparam \PCBranch_F[61]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N25
+dffeas \floprDevice|q[61] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[61]~180_combout ),
+	.asdata(\PCBranch_F[61]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [61]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[61] .is_wysiwyg = "true";
+defparam \floprDevice|q[61] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N26
+cycloneive_lcell_comb \floprDevice|q[62]~182 (
+// Equation(s):
+// \floprDevice|q[62]~182_combout  = (\floprDevice|q [62] & (\floprDevice|q[61]~181  $ (GND))) # (!\floprDevice|q [62] & (!\floprDevice|q[61]~181  & VCC))
+// \floprDevice|q[62]~183  = CARRY((\floprDevice|q [62] & !\floprDevice|q[61]~181 ))
+
+	.dataa(\floprDevice|q [62]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\floprDevice|q[61]~181 ),
+	.combout(\floprDevice|q[62]~182_combout ),
+	.cout(\floprDevice|q[62]~183 ));
+// synopsys translate_off
+defparam \floprDevice|q[62]~182 .lut_mask = 16'hA50A;
+defparam \floprDevice|q[62]~182 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y17_N22
+cycloneive_io_ibuf \PCBranch_F[62]~input (
+	.i(PCBranch_F[62]),
+	.ibar(gnd),
+	.o(\PCBranch_F[62]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[62]~input .bus_hold = "false";
+defparam \PCBranch_F[62]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N27
+dffeas \floprDevice|q[62] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[62]~182_combout ),
+	.asdata(\PCBranch_F[62]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [62]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[62] .is_wysiwyg = "true";
+defparam \floprDevice|q[62] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X25_Y20_N28
+cycloneive_lcell_comb \floprDevice|q[63]~184 (
+// Equation(s):
+// \floprDevice|q[63]~184_combout  = \floprDevice|q[62]~183  $ (\floprDevice|q [63])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\floprDevice|q [63]),
+	.cin(\floprDevice|q[62]~183 ),
+	.combout(\floprDevice|q[63]~184_combout ),
+	.cout());
+// synopsys translate_off
+defparam \floprDevice|q[63]~184 .lut_mask = 16'h0FF0;
+defparam \floprDevice|q[63]~184 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: IOIBUF_X53_Y17_N15
+cycloneive_io_ibuf \PCBranch_F[63]~input (
+	.i(PCBranch_F[63]),
+	.ibar(gnd),
+	.o(\PCBranch_F[63]~input_o ));
+// synopsys translate_off
+defparam \PCBranch_F[63]~input .bus_hold = "false";
+defparam \PCBranch_F[63]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: FF_X25_Y20_N29
+dffeas \floprDevice|q[63] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\floprDevice|q[63]~184_combout ),
+	.asdata(\PCBranch_F[63]~input_o ),
+	.clrn(!\reset~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\PCSrc_F~input_o ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\floprDevice|q [63]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \floprDevice|q[63] .is_wysiwyg = "true";
+defparam \floprDevice|q[63] .power_up = "low";
+// synopsys translate_on
+
+assign imem_addr_F[0] = \imem_addr_F[0]~output_o ;
+
+assign imem_addr_F[1] = \imem_addr_F[1]~output_o ;
+
+assign imem_addr_F[2] = \imem_addr_F[2]~output_o ;
+
+assign imem_addr_F[3] = \imem_addr_F[3]~output_o ;
+
+assign imem_addr_F[4] = \imem_addr_F[4]~output_o ;
+
+assign imem_addr_F[5] = \imem_addr_F[5]~output_o ;
+
+assign imem_addr_F[6] = \imem_addr_F[6]~output_o ;
+
+assign imem_addr_F[7] = \imem_addr_F[7]~output_o ;
+
+assign imem_addr_F[8] = \imem_addr_F[8]~output_o ;
+
+assign imem_addr_F[9] = \imem_addr_F[9]~output_o ;
+
+assign imem_addr_F[10] = \imem_addr_F[10]~output_o ;
+
+assign imem_addr_F[11] = \imem_addr_F[11]~output_o ;
+
+assign imem_addr_F[12] = \imem_addr_F[12]~output_o ;
+
+assign imem_addr_F[13] = \imem_addr_F[13]~output_o ;
+
+assign imem_addr_F[14] = \imem_addr_F[14]~output_o ;
+
+assign imem_addr_F[15] = \imem_addr_F[15]~output_o ;
+
+assign imem_addr_F[16] = \imem_addr_F[16]~output_o ;
+
+assign imem_addr_F[17] = \imem_addr_F[17]~output_o ;
+
+assign imem_addr_F[18] = \imem_addr_F[18]~output_o ;
+
+assign imem_addr_F[19] = \imem_addr_F[19]~output_o ;
+
+assign imem_addr_F[20] = \imem_addr_F[20]~output_o ;
+
+assign imem_addr_F[21] = \imem_addr_F[21]~output_o ;
+
+assign imem_addr_F[22] = \imem_addr_F[22]~output_o ;
+
+assign imem_addr_F[23] = \imem_addr_F[23]~output_o ;
+
+assign imem_addr_F[24] = \imem_addr_F[24]~output_o ;
+
+assign imem_addr_F[25] = \imem_addr_F[25]~output_o ;
+
+assign imem_addr_F[26] = \imem_addr_F[26]~output_o ;
+
+assign imem_addr_F[27] = \imem_addr_F[27]~output_o ;
+
+assign imem_addr_F[28] = \imem_addr_F[28]~output_o ;
+
+assign imem_addr_F[29] = \imem_addr_F[29]~output_o ;
+
+assign imem_addr_F[30] = \imem_addr_F[30]~output_o ;
+
+assign imem_addr_F[31] = \imem_addr_F[31]~output_o ;
+
+assign imem_addr_F[32] = \imem_addr_F[32]~output_o ;
+
+assign imem_addr_F[33] = \imem_addr_F[33]~output_o ;
+
+assign imem_addr_F[34] = \imem_addr_F[34]~output_o ;
+
+assign imem_addr_F[35] = \imem_addr_F[35]~output_o ;
+
+assign imem_addr_F[36] = \imem_addr_F[36]~output_o ;
+
+assign imem_addr_F[37] = \imem_addr_F[37]~output_o ;
+
+assign imem_addr_F[38] = \imem_addr_F[38]~output_o ;
+
+assign imem_addr_F[39] = \imem_addr_F[39]~output_o ;
+
+assign imem_addr_F[40] = \imem_addr_F[40]~output_o ;
+
+assign imem_addr_F[41] = \imem_addr_F[41]~output_o ;
+
+assign imem_addr_F[42] = \imem_addr_F[42]~output_o ;
+
+assign imem_addr_F[43] = \imem_addr_F[43]~output_o ;
+
+assign imem_addr_F[44] = \imem_addr_F[44]~output_o ;
+
+assign imem_addr_F[45] = \imem_addr_F[45]~output_o ;
+
+assign imem_addr_F[46] = \imem_addr_F[46]~output_o ;
+
+assign imem_addr_F[47] = \imem_addr_F[47]~output_o ;
+
+assign imem_addr_F[48] = \imem_addr_F[48]~output_o ;
+
+assign imem_addr_F[49] = \imem_addr_F[49]~output_o ;
+
+assign imem_addr_F[50] = \imem_addr_F[50]~output_o ;
+
+assign imem_addr_F[51] = \imem_addr_F[51]~output_o ;
+
+assign imem_addr_F[52] = \imem_addr_F[52]~output_o ;
+
+assign imem_addr_F[53] = \imem_addr_F[53]~output_o ;
+
+assign imem_addr_F[54] = \imem_addr_F[54]~output_o ;
+
+assign imem_addr_F[55] = \imem_addr_F[55]~output_o ;
+
+assign imem_addr_F[56] = \imem_addr_F[56]~output_o ;
+
+assign imem_addr_F[57] = \imem_addr_F[57]~output_o ;
+
+assign imem_addr_F[58] = \imem_addr_F[58]~output_o ;
+
+assign imem_addr_F[59] = \imem_addr_F[59]~output_o ;
+
+assign imem_addr_F[60] = \imem_addr_F[60]~output_o ;
+
+assign imem_addr_F[61] = \imem_addr_F[61]~output_o ;
+
+assign imem_addr_F[62] = \imem_addr_F[62]~output_o ;
+
+assign imem_addr_F[63] = \imem_addr_F[63]~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_C1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_D2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_H1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_H2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_F16,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule
