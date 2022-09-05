@@ -8,10 +8,7 @@ module maindec (input logic [10:0] Op,
 					 output logic Branch,
 					 output logic [1:0] ALUOp);
 					 
-	logic [8:0] bitMask;
-	initial begin
-		bitMask = '0;
-	end
+	logic [8:0] bitMask = '0;
 
 	always_comb begin
 		casez(Op)

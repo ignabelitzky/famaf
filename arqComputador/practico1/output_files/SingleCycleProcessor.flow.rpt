@@ -1,5 +1,5 @@
 Flow report for SingleCycleProcessor
-Fri Sep  2 17:52:56 2022
+Mon Sep  5 16:15:50 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Sep  2 17:52:56 2022       ;
+; Flow Status                        ; Successful - Mon Sep  5 16:15:50 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessor                        ;
-; Top-level Entity Name              ; alu                                         ;
+; Top-level Entity Name              ; fetch                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 350                                         ;
-;     Total combinational functions  ; 350                                         ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 197                                         ;
+; Total logic elements               ; 64                                          ;
+;     Total combinational functions  ; 59                                          ;
+;     Dedicated logic registers      ; 64                                          ;
+; Total registers                    ; 64                                          ;
+; Total pins                         ; 131                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+----------------------+
 ; Option            ; Setting              ;
 +-------------------+----------------------+
-; Start date & time ; 09/02/2022 17:52:51  ;
+; Start date & time ; 09/05/2022 16:15:45  ;
 ; Main task         ; Compilation          ;
 ; Revision Name     ; SingleCycleProcessor ;
 +-------------------+----------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+----------------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value        ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+----------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 167275812460839.166215197113909        ; --                   ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 167275812460839.166240534505525        ; --                   ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                   ; --          ; imem_tb                           ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                   ; --          ; flopr_tb                          ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                   ; --          ; signext_tb                        ;
@@ -106,13 +106,13 @@ https://fpgasoftware.intel.com/eula.
 ; MIN_CORE_JUNCTION_TEMP               ; 0                                      ; --                   ; --          ; --                                ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE          ; 1.2V                                   ; --                   ; --          ; --                                ;
 ; NUM_PARALLEL_PROCESSORS              ; All                                    ; --                   ; --          ; --                                ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                   ; alu         ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                   ; alu         ; Top                               ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                   ; alu         ; Top                               ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family) ; --                   ; fetch       ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family) ; --                   ; fetch       ; Top                               ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family) ; --                   ; fetch       ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --                   ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --                   ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --                   ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                     ; alu                                    ; SingleCycleProcessor ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                     ; fetch                                  ; SingleCycleProcessor ; --          ; --                                ;
 +--------------------------------------+----------------------------------------+----------------------+-------------+-----------------------------------+
 
 
@@ -121,8 +121,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 629 MB              ; 00:00:15                           ;
-; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:15                           ;
+; Analysis & Synthesis ; 00:00:05     ; 1.0                     ; 657 MB              ; 00:00:16                           ;
+; Total                ; 00:00:05     ; --                      ; --                  ; 00:00:16                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
