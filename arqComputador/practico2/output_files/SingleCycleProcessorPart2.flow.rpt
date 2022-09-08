@@ -1,5 +1,5 @@
 Flow report for SingleCycleProcessorPart2
-Mon Sep  5 17:01:17 2022
+Tue Sep  6 20:57:34 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Sep  5 17:01:17 2022       ;
+; Flow Status                        ; Successful - Tue Sep  6 20:57:34 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessorPart2                   ;
 ; Top-level Entity Name              ; processor_arm                               ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------------+
 ; Option            ; Setting                   ;
 +-------------------+---------------------------+
-; Start date & time ; 09/05/2022 17:01:03       ;
+; Start date & time ; 09/06/2022 20:57:19       ;
 ; Main task         ; Compilation               ;
 ; Revision Name     ; SingleCycleProcessorPart2 ;
 +-------------------+---------------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------------------+---------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value             ; Entity Name   ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 167275812460839.166240806310403        ; --                        ; --            ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 167275812460839.166250863914608        ; --                        ; --            ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                        ; --            ; processor_tb                      ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_boundary_scan    ;
@@ -108,8 +108,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 689 MB              ; 00:00:25                           ;
-; Total                ; 00:00:14     ; --                      ; --                  ; 00:00:25                           ;
+; Analysis & Synthesis ; 00:00:15     ; 1.0                     ; 688 MB              ; 00:00:26                           ;
+; Total                ; 00:00:15     ; --                      ; --                  ; 00:00:26                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

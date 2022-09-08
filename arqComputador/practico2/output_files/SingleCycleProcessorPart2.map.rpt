@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycleProcessorPart2
-Mon Sep  5 17:01:17 2022
+Tue Sep  6 20:57:34 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -64,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep  5 17:01:17 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep  6 20:57:34 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessorPart2                   ;
 ; Top-level Entity Name              ; processor_arm                               ;
@@ -6485,7 +6485,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep  5 17:01:03 2022
+    Info: Processing started: Tue Sep  6 20:57:19 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycleProcessorPart2 -c SingleCycleProcessorPart2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -6566,9 +6566,9 @@ Info (21057): Implemented 395 device resources after synthesis - the final resou
     Info (21059): Implemented 129 output pins
     Info (21061): Implemented 263 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 689 megabytes
-    Info: Processing ended: Mon Sep  5 17:01:17 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 688 megabytes
+    Info: Processing ended: Tue Sep  6 20:57:34 2022
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:26
 
 

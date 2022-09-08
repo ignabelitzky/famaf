@@ -9,54 +9,54 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/simulation/modelsim
-valu
+vregfile
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1662151980
+Z2 !s110 1662601883
 !i10b 1
-!s100 V_bBdz[=M3CbAz46O<;SG1
+!s100 H[M0PgZ1jmf5CRKC;mce@3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IX``k:K0ZUbVGzi6`ZHRWB1
+I2=9lU`P7_XVgQJ@l2mZY^3
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1662144019
-8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv
-F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv
+w1661640004
+8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv
+F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv
 !i122 0
-L0 1 18
+L0 1 30
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1662151980.000000
-!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv|
+Z6 !s108 1662601883.000000
+!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv|
 !i113 1
 Z7 o-sv -work work
 Z8 !s92 -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1
 Z9 tCvgOpt 0
-valu_tb
+vregfile_tb
 R1
 R2
 !i10b 1
-!s100 ;WgUHhN2X]>2^Q_Q1<::`2
+!s100 nR2[5WLCSZdU[7l4_9fa90
 R3
-IN_90QI9M[CEai2f<?VZVD0
+I70afI2bn24dO=HgdWL`lP3
 R4
 S1
 R0
-w1662151967
-8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv
-F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv
+w1662601810
+8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv
+F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv
 !i122 1
-L0 3 65
+L0 3 95
 R5
 r1
 !s85 0
 31
 R6
-!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv|
+!s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv|
 !i113 1
 R7
 R8

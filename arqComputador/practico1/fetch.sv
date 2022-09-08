@@ -5,5 +5,5 @@ module fetch #(parameter N = 64)
 	logic [N-1:0] muxOut, addOut;
 	mux2 muxDevice(addOut, PCBranch_F, PCSrc_F, muxOut);
 	flopr floprDevice(clk, reset, muxOut, imem_addr_F);
-	adder addDevice(imem_addr_F, 64'('h20), addOut);	// sum of 4 bytes
+	adder addDevice(imem_addr_F, 64'h20, addOut);	// sum of 4 bytes
 endmodule

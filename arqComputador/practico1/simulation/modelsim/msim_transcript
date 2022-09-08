@@ -9,34 +9,34 @@
 # Copying /home/ignacio/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:53:00 on Sep 02,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu.sv 
-# -- Compiling module alu
+# Start time: 22:51:23 on Sep 07,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv 
+# -- Compiling module regfile
 # 
 # Top level modules:
-# 	alu
-# End time: 17:53:00 on Sep 02,2022, Elapsed time: 0:00:00
+# 	regfile
+# End time: 22:51:23 on Sep 07,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv}
+# vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 17:53:00 on Sep 02,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv 
-# -- Compiling module alu_tb
+# Start time: 22:51:23 on Sep 07,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv 
+# -- Compiling module regfile_tb
 # 
 # Top level modules:
-# 	alu_tb
-# End time: 17:53:00 on Sep 02,2022, Elapsed time: 0:00:00
+# 	regfile_tb
+# End time: 22:51:23 on Sep 07,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  alu_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" alu_tb 
-# Start time: 17:53:00 on Sep 02,2022
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  regfile_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" regfile_tb 
+# Start time: 22:51:23 on Sep 07,2022
 # Loading sv_std.std
-# Loading work.alu_tb
-# Loading work.alu
+# Loading work.regfile_tb
+# Loading work.regfile
 # 
 # add wave *
 # view structure
@@ -44,9 +44,9 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# 15 tests completed with  0 errors
-# ** Note: $stop    : /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv(64)
-#    Time: 145 ns  Iteration: 1  Instance: /alu_tb
-# Break in Module alu_tb at /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/alu_tb.sv line 64
-# End time: 17:54:54 on Sep 02,2022, Elapsed time: 0:01:54
+#                   16/                  16 tests finished succesfully
+# ** Note: $stop    : /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv(90)
+#    Time: 158 ns  Iteration: 0  Instance: /regfile_tb
+# Break in Module regfile_tb at /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv line 90
+# End time: 22:51:36 on Sep 07,2022, Elapsed time: 0:00:13
 # Errors: 0, Warnings: 0
