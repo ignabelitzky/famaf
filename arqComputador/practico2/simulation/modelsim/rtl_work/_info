@@ -12,7 +12,7 @@ cModel Technology
 Z0 d/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/simulation/modelsim
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1662602195
+Z2 !s110 1663108676
 !i10b 1
 !s100 fRY`cHMf=_kMKZ^RWz`C60
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -29,7 +29,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1662602195.000000
+Z6 !s108 1663108676.000000
 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv|
 !i113 1
@@ -183,14 +183,14 @@ V=VcFJ1ISz_H?1@fo;QFYO1
 !s100 9UhgcemjCI:F<bA>GRZY=0
 Z19 OV;C;2020.1;71
 31
-R2
+Z20 !s110 1663108677
 !i10b 1
 R6
-Z20 !s90 -reportprogress|300|-93|-work|work|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/dmem.vhd|
-Z21 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/dmem.vhd|
+Z21 !s90 -reportprogress|300|-93|-work|work|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/dmem.vhd|
+Z22 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/dmem.vhd|
 !i113 1
-Z22 o-93 -work work
-Z23 tExplicit 1 CvgOpt 0
+Z23 o-93 -work work
+Z24 tExplicit 1 CvgOpt 0
 Abehave
 R12
 R13
@@ -205,14 +205,14 @@ VnM8aQ:=>gYVm<K;[K6<VQ1
 !s100 a2K;HL21gA:Y<M8M2VzYh0
 R19
 31
-R2
+R20
 !i10b 1
 R6
-R20
 R21
-!i113 1
 R22
+!i113 1
 R23
+R24
 vexecute
 R1
 R2
@@ -295,17 +295,17 @@ vimem
 R1
 R2
 !i10b 1
-!s100 THCK?0mcLXgAJhSd7i]H^0
+!s100 ImRPD018dfj6C6X]3UW[g3
 R3
-INLU:@XlPRom5aAT@8mhM:0
+Ic3UW[e5EK6cWP=EN?cg_l2
 R4
 S1
 R0
-w1661804994
+w1663108658
 8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
 F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
 !i122 12
-L0 1 27
+L0 1 46
 R5
 r1
 !s85 0
@@ -383,7 +383,7 @@ w1662126738
 8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/mux2.sv
 F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/mux2.sv
 !i122 10
-Z24 L0 3 7
+Z25 L0 3 7
 R5
 r1
 !s85 0
@@ -423,7 +423,7 @@ R11
 R9
 vprocessor_tb
 R1
-R2
+R20
 !i10b 1
 !s100 J>cUK4dH75TIBDIHBWY^z0
 R3
@@ -440,7 +440,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1663108677.000000
 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/processor_tb.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/processor_tb.sv|
 !i113 1
@@ -513,7 +513,7 @@ w1661704793
 8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/sl2.sv
 F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/sl2.sv
 !i122 7
-R24
+R25
 R5
 r1
 !s85 0
