@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SingleCycleProcessorPart2
-Tue Sep 13 19:37:51 2022
+Thu Sep 15 06:27:09 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -64,13 +64,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Sep 13 19:37:51 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 15 06:27:09 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessorPart2                   ;
 ; Top-level Entity Name              ; processor_arm                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,676                                       ;
-;     Total combinational functions  ; 1,307                                       ;
+; Total logic elements               ; 1,680                                       ;
+;     Total combinational functions  ; 1,311                                       ;
 ;     Dedicated logic registers      ; 452                                         ;
 ; Total registers                    ; 452                                         ;
 ; Total pins                         ; 132                                         ;
@@ -222,16 +222,16 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,676          ;
+; Estimated Total logic elements              ; 1,680          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1307           ;
+; Total combinational functions               ; 1311           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 1014           ;
-;     -- 3 input functions                    ; 269            ;
-;     -- <=2 input functions                  ; 24             ;
+;     -- 4 input functions                    ; 1015           ;
+;     -- 3 input functions                    ; 273            ;
+;     -- <=2 input functions                  ; 23             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 1238           ;
+;     -- normal mode                          ; 1242           ;
 ;     -- arithmetic mode                      ; 69             ;
 ;                                             ;                ;
 ; Total registers                             ; 452            ;
@@ -244,7 +244,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 452            ;
-; Total fan-out                               ; 6515           ;
+; Total fan-out                               ; 6529           ;
 ; Average fan-out                             ; 3.22           ;
 +---------------------------------------------+----------------+
 
@@ -254,18 +254,18 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                        ; Entity Name   ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------+---------------+--------------+
-; |processor_arm               ; 1307 (0)            ; 452 (0)                   ; 0           ; 0            ; 0       ; 0         ; 132  ; 0            ; |processor_arm                                             ; processor_arm ; work         ;
+; |processor_arm               ; 1311 (0)            ; 452 (0)                   ; 0           ; 0            ; 0       ; 0         ; 132  ; 0            ; |processor_arm                                             ; processor_arm ; work         ;
 ;    |controller:c|            ; 11 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c                                ; controller    ; work         ;
 ;       |aludec:decAlu|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|aludec:decAlu                  ; aludec        ; work         ;
 ;       |maindec:decPpal|      ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|maindec:decPpal                ; maindec       ; work         ;
-;    |datapath:dp|             ; 1273 (0)            ; 452 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp                                 ; datapath      ; work         ;
+;    |datapath:dp|             ; 1277 (0)            ; 452 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp                                 ; datapath      ; work         ;
 ;       |decode:DECODE|        ; 973 (0)             ; 446 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE                   ; decode        ; work         ;
 ;          |mux2:ra2mux|       ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|mux2:ra2mux       ; mux2          ; work         ;
 ;          |regfile:registers| ; 964 (964)           ; 446 (446)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers ; regfile       ; work         ;
-;       |execute:EXECUTE|      ; 272 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE                 ; execute       ; work         ;
-;          |adder:addDevice|   ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|adder:addDevice ; adder         ; work         ;
-;          |alu:aluDevice|     ; 255 (255)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|alu:aluDevice   ; alu           ; work         ;
-;          |mux2:muxDevice|    ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|mux2:muxDevice  ; mux2          ; work         ;
+;       |execute:EXECUTE|      ; 276 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE                 ; execute       ; work         ;
+;          |adder:addDevice|   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|adder:addDevice ; adder         ; work         ;
+;          |alu:aluDevice|     ; 253 (253)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|alu:aluDevice   ; alu           ; work         ;
+;          |mux2:muxDevice|    ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|mux2:muxDevice  ; mux2          ; work         ;
 ;       |fetch:FETCH|          ; 6 (0)               ; 6 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH                     ; fetch         ; work         ;
 ;          |flopr:floprDevice| ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH|flopr:floprDevice   ; flopr         ; work         ;
 ;       |memory:MEMORY|        ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|memory:MEMORY                   ; memory        ; work         ;
@@ -5314,7 +5314,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
-; 8:1                ; 64 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |processor_arm|datapath:dp|execute:EXECUTE|alu:aluDevice|Mux52 ;
+; 8:1                ; 64 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |processor_arm|datapath:dp|execute:EXECUTE|alu:aluDevice|Mux53 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
 
 
@@ -5508,18 +5508,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cycloneiii_ff         ; 452                         ;
 ;     CLR               ; 6                           ;
 ;     ENA               ; 446                         ;
-; cycloneiii_lcell_comb ; 1307                        ;
+; cycloneiii_lcell_comb ; 1311                        ;
 ;     arith             ; 69                          ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 68                          ;
-;     normal            ; 1238                        ;
+;         3 data inputs ; 69                          ;
+;     normal            ; 1242                        ;
 ;         1 data inputs ; 13                          ;
 ;         2 data inputs ; 10                          ;
-;         3 data inputs ; 201                         ;
-;         4 data inputs ; 1014                        ;
+;         3 data inputs ; 204                         ;
+;         4 data inputs ; 1015                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 24.40                       ;
-; Average LUT depth     ; 18.42                       ;
+; Max LUT depth         ; 25.60                       ;
+; Average LUT depth     ; 18.74                       ;
 +-----------------------+-----------------------------+
 
 
@@ -5538,7 +5537,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Tue Sep 13 19:37:39 2022
+    Info: Processing started: Thu Sep 15 06:26:58 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SingleCycleProcessorPart2 -c SingleCycleProcessorPart2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -5614,14 +5613,14 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "dump" File: /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/processor_arm.sv Line: 7
-Info (21057): Implemented 1872 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1876 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 129 output pins
-    Info (21061): Implemented 1740 logic cells
+    Info (21061): Implemented 1744 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 691 megabytes
-    Info: Processing ended: Tue Sep 13 19:37:51 2022
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 686 megabytes
+    Info: Processing ended: Thu Sep 15 06:27:09 2022
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:22
 
 
