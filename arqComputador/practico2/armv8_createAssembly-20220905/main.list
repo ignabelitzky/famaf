@@ -4,18 +4,17 @@ main.elf:     file format elf64-littleaarch64
 
 Disassembly of section .text:
 
-0000000000000000 <loop-0xc>:
-   0:	8b1e03c5 	add	x5, x30, x30
-   4:	8b0400a5 	add	x5, x5, x4
-   8:	cb020042 	sub	x2, x2, x2
+0000000000000000 <loop-0x4>:
+   0:	8b1d001e 	add	x30, x0, x29
 
-000000000000000c <loop>:
-   c:	f8000002 	stur	x2, [x0]
-  10:	8b080000 	add	x0, x0, x8
-  14:	cb0100a5 	sub	x5, x5, x1
-  18:	8b010042 	add	x2, x2, x1
-  1c:	b4000045 	cbz	x5, 24 <exitloop>
-  20:	b4ffff7f 	cbz	xzr, c <loop>
+0000000000000004 <loop>:
+   4:	cb0103bd 	sub	x29, x29, x1
+   8:	8b1d03de 	add	x30, x30, x29
+   c:	b400005d 	cbz	x29, 14 <L1>
+  10:	b4ffffbf 	cbz	xzr, 4 <loop>
 
-0000000000000024 <exitloop>:
-  24:	b400001f 	cbz	xzr, 24 <exitloop>
+0000000000000014 <L1>:
+  14:	f80f001e 	stur	x30, [x0, #240]
+
+0000000000000018 <exitloop>:
+  18:	b400001f 	cbz	xzr, 18 <exitloop>

@@ -1,5 +1,5 @@
 Flow report for SingleCycleProcessorPart2
-Thu Sep 15 06:27:09 2022
+Sat Sep 17 15:31:50 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Sep 15 06:27:09 2022       ;
+; Flow Status                        ; Successful - Sat Sep 17 15:31:50 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; SingleCycleProcessorPart2                   ;
 ; Top-level Entity Name              ; processor_arm                               ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE22F17C6                                ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,680                                       ;
-;     Total combinational functions  ; 1,311                                       ;
-;     Dedicated logic registers      ; 452                                         ;
-; Total registers                    ; 452                                         ;
+; Total logic elements               ; 1,307                                       ;
+;     Total combinational functions  ; 878                                         ;
+;     Dedicated logic registers      ; 518                                         ;
+; Total registers                    ; 518                                         ;
 ; Total pins                         ; 132                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------------+
 ; Option            ; Setting                   ;
 +-------------------+---------------------------+
-; Start date & time ; 09/15/2022 06:26:58       ;
+; Start date & time ; 09/17/2022 15:31:43       ;
 ; Main task         ; Compilation               ;
 ; Revision Name     ; SingleCycleProcessorPart2 ;
 +-------------------+---------------------------+
@@ -76,15 +76,15 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------------------+---------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value             ; Entity Name   ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------------------+---------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 167275812460839.166323401806104        ; --                        ; --            ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 167275812460839.166343950318143        ; --                        ; --            ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --                        ; --            ; processor_tb                      ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_signal_integrity ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --                        ; --            ; eda_board_design_symbol           ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; processor_tb                           ; --                        ; --            ; eda_simulation                    ;
-; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                            ; --                        ; --            ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (Verilog)              ; <None>                    ; --            ; --                                ;
+; EDA_OUTPUT_DATA_FORMAT               ; Systemverilog Hdl                      ; --                        ; --            ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (SystemVerilog)        ; <None>                    ; --            ; --                                ;
 ; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                        ; --                        ; --            ; eda_simulation                    ;
 ; EDA_TEST_BENCH_FILE                  ; ModulosTP2-20220905/processor_tb.sv    ; --                        ; --            ; processor_tb                      ;
 ; EDA_TEST_BENCH_MODULE_NAME           ; processor_tb                           ; --                        ; --            ; processor_tb                      ;
@@ -108,8 +108,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 686 MB              ; 00:00:21                           ;
-; Total                ; 00:00:11     ; --                      ; --                  ; 00:00:21                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 687 MB              ; 00:00:18                           ;
+; Total                ; 00:00:07     ; --                      ; --                  ; 00:00:18                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

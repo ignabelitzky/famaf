@@ -1,5 +1,6 @@
 	.text
 	.org 0x0000
+    /* ejercicio 2a
     // Los registros vienen inicializados de x0 a x30 con el valor de sus indices
 	add x5, x30, x30 // x5 = x30 + x30 = 30 + 30 = 60
 	add x5, x5, x4 // x5 = x5 + x4 = 60 + 4 = 64 // x5 será el contador de posiciones
@@ -14,3 +15,34 @@ loop:
 	cbz xzr, loop
 exitloop: 
 	cbz XZR, exitloop	
+    */
+
+    // Ejercicio 2b)
+    add X30, X0, X29    // X30 inicializo con valor 29
+loop:
+    sub X29, X29, X1    // Resto de a uno
+    add X30, X30, X29   // Actualizo la sumatoria 28 + 27 + 26...
+    cbz X29, L1         // Corto el bucle si llego a 0
+    cbz XZR, loop       // Entro de nuevo al bucle porque no llegue a 0
+
+L1:
+    stur X30, [X0, #240]  // Guardo la sumatoria de los N registros en posicion N+1
+
+exitloop:
+    cbz XZR, exitloop   // Loop infinito
+
+    /* Ejercicio 2c)
+    add X2, X0, X0
+    
+loop:
+    add X2, X2, X17
+    sub X16, X16, X1
+    cbz X16, L1
+    cbz XZR, loop
+
+L1:
+    stur X2, [X0, #0]
+
+exitloop:
+    cbz XZR, exitloop
+    */

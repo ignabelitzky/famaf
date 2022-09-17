@@ -11,29 +11,29 @@
 # 
 # vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:51:23 on Sep 07,2022
+# Start time: 21:19:31 on Sep 15,2022
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile.sv 
 # -- Compiling module regfile
 # 
 # Top level modules:
 # 	regfile
-# End time: 22:51:23 on Sep 07,2022, Elapsed time: 0:00:00
+# End time: 21:19:31 on Sep 15,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1 {/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:51:23 on Sep 07,2022
+# Start time: 21:19:31 on Sep 15,2022
 # vlog -reportprogress 300 -sv -work work "+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1" /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv 
 # -- Compiling module regfile_tb
 # 
 # Top level modules:
 # 	regfile_tb
-# End time: 22:51:23 on Sep 07,2022, Elapsed time: 0:00:00
+# End time: 21:19:31 on Sep 15,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  regfile_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" regfile_tb 
-# Start time: 22:51:23 on Sep 07,2022
+# Start time: 21:19:31 on Sep 15,2022
 # Loading sv_std.std
 # Loading work.regfile_tb
 # Loading work.regfile
@@ -48,5 +48,5 @@
 # ** Note: $stop    : /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv(90)
 #    Time: 158 ns  Iteration: 0  Instance: /regfile_tb
 # Break in Module regfile_tb at /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/regfile_tb.sv line 90
-# End time: 22:51:36 on Sep 07,2022, Elapsed time: 0:00:13
+# End time: 21:19:41 on Sep 15,2022, Elapsed time: 0:00:10
 # Errors: 0, Warnings: 0
