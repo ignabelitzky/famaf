@@ -18,8 +18,8 @@ LIMIT 10;
 -- (Hint: puede que uno de estos países no tenga ciudad capital asignada, en este caso deberá mostrar "NULL").
 SELECT country.Name as 'Country Name', city.Name as 'Capital Name', country.Population
 FROM country
-	LEFT JOIN city
-	ON country.Capital = city.ID
+	LEFT JOIN city ON city.CountryCode = country.Code
+	-- ON country.Capital = city.ID
 ORDER BY country.Population ASC
 LIMIT 10;
 
@@ -40,7 +40,7 @@ SELECT country.Name as 'Country Name', city.Name as 'Capital Name'
 FROM country
 	INNER JOIN city
 	ON country.Capital = city.ID
-ORDER BY country.Population DESC 
+ORDER BY country.SurfaceArea DESC
 LIMIT 20;
 
 
