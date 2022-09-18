@@ -84,3 +84,9 @@ ORDER BY country.Name ASC;
 
 -- Ejercicio 8
 -- Listar aquellos países que tengan hablantes del Inglés pero no del Español en su población.
+SELECT Name AS 'Country Name'
+FROM country
+	LEFT JOIN countrylanguage
+	ON countrylanguage.Lang = 'English' and country.Code = countrylanguage.CountryCode
+WHERE countrylanguage.Lang <> 'Spanish'
+ORDER BY Name ASC;
