@@ -88,7 +88,7 @@ SELECT Name AS 'Country Name'
 FROM country
 	INNER JOIN countrylanguage
 	ON countrylanguage.Lang = 'English' and country.Code = countrylanguage.CountryCode
-WHERE countrylanguage.Lang <> 'Spanish'
+WHERE country.Code NOT IN (SELECT CountryCode FROM countrylanguage WHERE Lang = 'Spanish')
 ORDER BY Name ASC;
 
 
