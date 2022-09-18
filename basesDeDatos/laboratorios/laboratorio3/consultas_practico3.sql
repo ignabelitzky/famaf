@@ -86,7 +86,36 @@ ORDER BY country.Name ASC;
 -- Listar aquellos países que tengan hablantes del Inglés pero no del Español en su población.
 SELECT Name AS 'Country Name'
 FROM country
-	LEFT JOIN countrylanguage
+	INNER JOIN countrylanguage
 	ON countrylanguage.Lang = 'English' and country.Code = countrylanguage.CountryCode
 WHERE countrylanguage.Lang <> 'Spanish'
 ORDER BY Name ASC;
+
+
+-- Parte II - Preguntas
+-- 1. Devuelven los mismos valores las siguientes consultas? Por que?
+SELECT city.name, country.Name
+FROM city
+INNER JOIN country ON city.CountryCode = country.Code AND country.Name = 'Argentina';
+
+SELECT city.name, country.Name
+FROM city
+INNER JOIN country ON city.CountryCode = country.Code
+WHERE country.name = 'Argentina';
+
+-- Respuesta: Si devuelven lo mismo, ambas estan filtrando las ciudades de Argentina.
+
+
+-- 2. Y si en vez de INNER JOIN Fuera un LEFT JOIN?
+SELECT city.name, country.Name
+FROM city
+LEFT JOIN country ON city.CountryCode = country.Code AND country.Name = 'Argentina';
+
+SELECT city.name, country.Name
+FROM city
+LEFT JOIN country ON city.CountryCode = country.Code
+WHERE country.name = 'Argentina';
+
+-- Respuesta: No devuelven lo mismo, pues la primer Query devuelve todas las ciudades
+-- pero indica como NULL todas aquellas que no pertenecen a Argentina.
+-- Mientras que la segunda consulta funciona como un except y solo lista las ciudades de Argentina.
