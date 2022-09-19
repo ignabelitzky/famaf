@@ -53,9 +53,9 @@ CREATE TABLE `countrylanguage` (
 -- Listar el nombre de la ciudad y el nombre del país de todas las ciudades que pertenezcan
 -- a países con una población menor a 10000 habitantes.
 SELECT city.Name AS 'City name', country.Name AS 'Country name'
-FROM city
-	INNER JOIN country ON city.CountryCode = country.Code
-WHERE city.Population < 10000
+FROM country
+	INNER JOIN city ON city.CountryCode = country.Code
+WHERE country.Population < 10000
 ORDER BY city.Name ASC;
 
 
@@ -83,3 +83,4 @@ WHERE city.Population >=
 -- Ejercicio 4
 -- Listar aquellos países junto a sus idiomas no oficiales, que superen en
 -- porcentaje de hablantes a cada uno de los idiomas oficiales del país.
+
