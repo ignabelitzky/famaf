@@ -38,7 +38,7 @@ CREATE TABLE `city` (
 DROP TABLE IF EXISTS `countrylanguage`;
 CREATE TABLE `countrylanguage` (
   `CountryCode` char(3) NOT NULL DEFAULT '',
-  `Language` char(30) NOT NULL DEFAULT '',
+  `Lang` char(30) NOT NULL DEFAULT '',
   `IsOfficial` enum('T','F') NOT NULL DEFAULT 'F',
   `Percentage` decimal(4,1) NOT NULL DEFAULT '0.0',
   PRIMARY KEY (`CountryCode`,`Language`),
@@ -74,7 +74,7 @@ ORDER BY Name ASC;
 -- o mayor a la población total de algún país de Asia.
 SELECT city.Name AS 'City name'
 FROM city
-INNER JOIN country ON country.Code = city.CountryCode AND country.Continent <> 'Asia'
+INNER JOIN country ON country.Code = city.CountryCode AND country.Continent != 'Asia'
 WHERE city.Population >=
 	(SELECT MIN(country.Population) FROM country
 	WHERE country.Continent = 'Asia');
@@ -83,4 +83,27 @@ WHERE city.Population >=
 -- Ejercicio 4
 -- Listar aquellos países junto a sus idiomas no oficiales, que superen en
 -- porcentaje de hablantes a cada uno de los idiomas oficiales del país.
+SELECT country.Name, countrylanguage.Lang AS `Language`
+FROM country
+INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode AND countrylanguage.IsOfficial = 'F'
+WHERE countrylanguage.Percentage > ALL(SELECT countrylanguage.Percentage FROM countrylanguage WHERE countrylanguage.CountryCode = country.Code AND countrylanguage.IsOfficial = 'T');
 
+
+-- Ejercicio 5
+-- Listar (sin duplicados) aquellas regiones que tengan países con una superficie menor
+-- a 1000 km2 y exista (en el país) al menos una ciudad con más de 100000 habitantes.
+-- (Hint: Esto puede resolverse con o sin una subquery, intenten encontrar ambas respuestas).
+SELECT DISTINCT country.Region
+FROM country
+INNER JOIN city ON country.Code = city.CountryCode AND country.SurfaceArea < 1000 AND city.Population > 100000;
+
+
+-- Ejercicio 6
+-- Listar el nombre de cada país con la cantidad de habitantes de su ciudad más poblada.
+-- (Hint: Hay dos maneras de llegar al mismo resultado. Usando consultas escalares o usando
+-- agrupaciones, encontrar ambas).
+SELECT country.Name, city.Population
+FROM country
+INNER JOIN city ON country.Code = city.CountryCode
+WHERE city.Population = (SELECT MAX(city.Population) FROM city WHERE country.Code = city.CountryCode)
+ORDER BY Name ASC;
