@@ -12,7 +12,7 @@ cModel Technology
 Z0 d/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/simulation/modelsim
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1663439515
+Z2 !s110 1663633794
 !i10b 1
 !s100 fRY`cHMf=_kMKZ^RWz`C60
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -29,7 +29,7 @@ Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1663439515.000000
+Z6 !s108 1663633794.000000
 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/adder.sv|
 !i113 1
@@ -295,17 +295,17 @@ vimem
 R1
 R2
 !i10b 1
-!s100 <=Y@MjZ5[zkJ6mZQHNj_B0
+!s100 Oa?C41:7JOd<cO>hQ`OzE0
 R3
-IPLT>RL=R=1@CYLebd^IFC1
+I6jT>TkOTTTIWm0;XfTDDD1
 R4
 S1
 R0
-w1663439501
+w1663633510
 8/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
 F/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico1/imem.sv
 !i122 12
-L0 1 83
+L0 1 81
 R5
 r1
 !s85 0
@@ -544,7 +544,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1663633793.000000
 !s107 /home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/writeback.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905|/home/ignacio/Projects/gitProjects/famaf/arqComputador/practico2/ModulosTP2-20220905/writeback.sv|
 !i113 1
