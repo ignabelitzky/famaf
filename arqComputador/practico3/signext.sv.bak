@@ -8,5 +8,3 @@ module signext(input logic [31:0] a,
 		endcase
 	end
 endmodule
-	
-	

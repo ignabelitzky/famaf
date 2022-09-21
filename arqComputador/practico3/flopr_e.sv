@@ -1,4 +1,4 @@
-module flopr #(parameter N = 64)
+module flopr_e #(parameter N = 64)
 				(input logic clk,
 				 input logic reset,
 				 input logic enable,

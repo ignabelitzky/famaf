@@ -88,3 +88,7 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id processor_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME processor_tb -section_id processor_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE processor_tb.sv -section_id processor_tb
 set_global_assignment -name SYSTEMVERILOG_FILE exception.sv
+set_global_assignment -name SYSTEMVERILOG_FILE flopr_e.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mux4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE esync.sv
+set_global_assignment -name SYSTEMVERILOG_FILE comp_n.sv
