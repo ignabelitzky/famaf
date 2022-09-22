@@ -31,9 +31,3 @@ module exception #(parameter N = 64)
 	mux2 #(N) mux2Device(PCBranch_E, ERR_Output, ERet, mux2_Output);
 	mux4 #(N) mux4Device(ERR_Output, ELR_Output, ESR_Output, 64'b0, IM_readData[13:12], mux4_Output);
 endmodule
-
-
-module comp_n #(parameter N=64)
-					(input logic [N-1:0] a,
-					 input logic [N-1:0] b,
-					 output logic out);

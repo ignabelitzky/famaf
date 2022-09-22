@@ -3,11 +3,8 @@
 module datapath #(parameter N = 64)
 					(input logic reset, clk,
 					input logic reg2loc,									
-					input logic [1:0] AluSrc,
+					input logic AluSrc,
 					input logic [3:0] AluControl,
-					input logic [3:0] EStatus,
-					input logic ERet,
-					input logic Exc,
 					input logic	Branch,
 					input logic memRead,
 					input logic memWrite,
@@ -16,8 +13,7 @@ module datapath #(parameter N = 64)
 					input logic [31:0] IM_readData,
 					input logic [N-1:0] DM_readData,
 					output logic [N-1:0] IM_addr, DM_addr, DM_writeData,
-					output logic DM_writeEnable, DM_readEnable,
-					output logic ExcAck);					
+					output logic DM_writeEnable, DM_readEnable );					
 					
 	logic PCSrc;
 	logic [N-1:0] PCBranch, writeData_E, writeData3; 
@@ -66,19 +62,8 @@ module datapath #(parameter N = 64)
 	writeback #(64) 	WRITEBACK (.aluResult_W(DM_addr), 
 										.DM_readData_W(DM_readData), 
 										.memtoReg(memtoReg), 
-										.writeData3_W(writeData3));
-	
-	
-	
-	exception #(64)	EXCEPTION (.clk(clk),
-										  .reset(reset),
-										  .EStatus(EStatus),
-										  .ERet(ERet),
-										  .Exc(Exc),
-										  .imem_addr_F(IM_addr),
-										  .IM_readData(IM_readData)
-										  .ExcAck(ExcAck),
-										  .IM_addr(IM_addr));
+										.writeData3_W(writeData3));		
+			
 		
 		
 	// Salida de señales de control:
