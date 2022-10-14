@@ -76,6 +76,13 @@ SELECT city.Name AS 'City name'
 FROM city
 INNER JOIN country ON country.Code = city.CountryCode AND country.Continent != 'Asia'
 WHERE city.Population >=
+	SOME(SELECT (country.Population) FROM country
+	WHERE country.Continent = 'Asia');
+
+SELECT city.Name AS 'City name'
+FROM city
+INNER JOIN country ON country.Code = city.CountryCode AND country.Continent != 'Asia'
+WHERE city.Population >=
 	(SELECT MIN(country.Population) FROM country
 	WHERE country.Continent = 'Asia');
 
@@ -107,3 +114,55 @@ FROM country
 INNER JOIN city ON country.Code = city.CountryCode
 WHERE city.Population = (SELECT MAX(city.Population) FROM city WHERE country.Code = city.CountryCode)
 ORDER BY Name ASC;
+
+
+-- Ejercicio 7
+-- Listar aquellos países y sus lenguajes no oficiales cuyo porcentaje de hablantes
+-- sea mayor al promedio de hablantes de los lenguajes oficiales.
+WITH officialPercent AS (
+	SELECT CountryCode, AVG(Percentage) AS Percent
+	FROM countrylanguage c
+	WHERE IsOfficial = 'T'
+	GROUP BY CountryCode
+)
+SELECT c.Name, l.Lang
+FROM country c
+	INNER JOIN countrylanguage l ON (c.Code = l.CountryCode)
+	INNER JOIN officialPercent o ON (c.Code = o.CountryCode)
+WHERE
+	l.IsOfficial = 'F' AND
+	l.Percentage > o.Percent
+ORDER BY Name;
+
+SELECT country.Name, countrylanguage.Lang FROM country
+INNER JOIN countrylanguage ON country.Code = countrylanguage.CountryCode AND countrylanguage.IsOfficial = 'F'
+WHERE countrylanguage.Percentage > (
+	SELECT AVG(countrylanguage.Percentage) 
+	FROM countrylanguage 
+	WHERE countrylanguage.CountryCode = country.Code AND countrylanguage.IsOfficial = 'T');
+
+
+-- Ejercicio 8
+-- Listar la cantidad de habitantes por continente ordenado en forma descendiente.
+SELECT country.Continent, SUM(country.Population) AS 'ContinentPopulation'
+FROM country
+GROUP BY country.Continent
+ORDER BY ContinentPopulation DESC;
+
+
+-- Ejercicio 9
+-- Listar el promedio de esperanza de vida (LifeExpectancy) por continente
+-- con una esperanza de vida entre 40 y 70 años.
+SELECT AVG(country.LifeExpectancy) AS lifeExpectancy, country.Continent
+FROM country
+GROUP BY country.Continent
+HAVING lifeExpectancy >= 40 AND lifeExpectancy <= 70;
+
+-- Ejercicio 10
+-- Listar la cantidad máxima, mínima, promedio y suma de habitantes por continente.
+SELECT MAX(country.Population), MIN(country.Population), AVG(country.Population), SUM(country.Population), country.Continent
+FROM country
+GROUP BY country.Continent;
+
+
+SELECT * FROM countrylanguage;

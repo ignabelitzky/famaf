@@ -1,0 +1,38 @@
+
+main.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <loop-0xc>:
+   0:	8b1e03c5 	add	x5, x30, x30
+   4:	8b0400a5 	add	x5, x5, x4
+   8:	cb020042 	sub	x2, x2, x2
+
+000000000000000c <loop>:
+   c:	f8000002 	stur	x2, [x0]
+  10:	8b080000 	add	x0, x0, x8
+  14:	cb0100a5 	sub	x5, x5, x1
+  18:	8b010042 	add	x2, x2, x1
+  1c:	b4000045 	cbz	x5, 24 <suma>
+  20:	b4ffff7f 	cbz	xzr, c <loop>
+
+0000000000000024 <suma>:
+  24:	8b09002a 	add	x10, x1, x9
+  28:	8b1f03eb 	add	x11, xzr, xzr
+  2c:	8b1f03e0 	add	x0, xzr, xzr
+
+0000000000000030 <loop2>:
+  30:	f840000c 	ldur	x12, [x0]
+  34:	8b0c016b 	add	x11, x11, x12
+  38:	cb01014a 	sub	x10, x10, x1
+  3c:	8b080000 	add	x0, x0, x8
+  40:	b400004a 	cbz	x10, 48 <exit>
+  44:	b4ffff7f 	cbz	xzr, 30 <loop2>
+
+0000000000000048 <exit>:
+  48:	f800000b 	stur	x11, [x0]
+  4c:	b400003f 	cbz	xzr, 50 <infiniteloop>
+
+0000000000000050 <infiniteloop>:
+  50:	b400001f 	cbz	xzr, 50 <infiniteloop>

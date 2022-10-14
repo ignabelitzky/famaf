@@ -11,10 +11,32 @@ loop:
 	add x0, x0, x8 // x0 = 0 + 8 = 8 para pasar a la siguiente posicion de memoria
 	sub x5, x5, x1 // x5 = x5 - x1 = 64 - 1 = 63 // decremento el contador pq ya avancé a la siguiente posicion de mem
 	add x2, x2, x1 // x2 = x2 + x1 = 0 + 1 = 1 // aumento para la inicializacion
-	cbz x5, exitloop // Se ejecutará 64 veces hasta q x5 llegue a 0 y termina el programa
+	cbz x5, suma // Se ejecutará 64 veces hasta q x5 llegue a 0 y termina el programa
 	cbz xzr, loop
-exitloop: 
-	cbz XZR, exitloop	
+
+    // N = 9 y resultado guardamos en 10
+suma:
+    add x10, x1, x9   // X10 = 10 numero de iteraciones
+    add x11, xzr, xzr   // X11 = 0 guarda la suma
+    add x0, xzr, xzr    // x0 = 0   a que lugar de mem accedemos
+
+loop2:
+    ldur x12, [x0, #0]
+    add x11, x11, x12
+    sub x10, x10, x1
+    add x0, x0, x8
+    cbz x10, exit
+    cbz xzr, loop2
+
+exit:
+    stur x11, [x0, #0]
+    cbz xzr, infiniteloop
+
+infiniteloop:
+    cbz xzr, infiniteloop
+	
+
+
 
     /* Ejercicio 2b)
     add X30, X0, X29    // X30 inicializo con valor 29
